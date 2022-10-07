@@ -15,6 +15,9 @@
     <div class="menu-inner-shadow"></div>
 
     <ul class="menu-inner py-1">
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Menu</span>
+        </li>
         <!-- Dashboard -->
         <li class="menu-item <?= $title == lang('App.dashboard') ? 'active' : null ?>">
             <a href="<?= route_to('dashboard'); ?>" class="menu-link">
@@ -30,6 +33,13 @@
             <a href="<?= route_to('kriteria.index'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-tag"></i>
                 <div data-i18n="Analytics">Kriteria</div>
+            </a>
+        </li>
+        <!-- Kategori -->
+        <li class="menu-item <?= $title == 'Pendaftar' ? 'active' : null ?>">
+            <a href="<?= route_to('pendaftar.index'); ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div data-i18n="Analytics">Pendaftar</div>
             </a>
         </li>
     </ul>

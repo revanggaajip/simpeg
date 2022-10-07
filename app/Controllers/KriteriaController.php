@@ -87,11 +87,11 @@ class KriteriaController extends BaseController
     }
     
     public function delete($id) {
-        try{
-            $deleted = $this->kriteria->delete(['id' => $id]);
+        $deleted = $this->kriteria->delete(['id' => $id]);
+        if($deleted) {
             return redirect()->to(route_to('kriteria.index'))->with('success', 'Data kriteria berhasil dihapus');
-        } catch(Exception $e) {
-            return redirect()->to(route_to('kriteria.index'))->with('error', 'Data kriteria gagal diupdate, '+ $e);             
+        } else {
+            return redirect()->to(route_to('kriteria.index'))->with('error', 'Data kriteria gagal dihapus');             
         }
     }
 }

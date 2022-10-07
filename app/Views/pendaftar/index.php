@@ -33,9 +33,9 @@
                         <td><?= $pendaftar['alamat']; ?></td>
                         <td>
                             <!-- Button Detail -->
-                            <a href="<?= route_to('pendaftar.detail', $pendaftar['id']); ?>"
-                                class="btn btn-success btn-sm">
-                                <i class="bx bx-menu"></i> Detail
+                            <a href="<?= route_to('pendaftar.edit', $pendaftar['id']); ?>"
+                                class="btn btn-warning btn-sm">
+                                <i class="bx bx-edit"></i> Edit
                             </a>
                             <!-- Button Delete -->
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
