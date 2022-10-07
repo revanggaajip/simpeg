@@ -7,7 +7,7 @@
 <?= $this->section('content'); ?>
 <div class="card">
     <div class="card-header d-flex justify-content-between mb-3">
-        <h4 class="my-auto">Daftar <?= $title; ?></h4>
+        <h4 class="my-auto">Data <?= $title; ?></h4>
         <div>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">

@@ -20,7 +20,7 @@
                     <div class="col mb-3">
                         <label for="nama" class="form-label">Nama Kriteria</label>
                         <input type="text" name="nama" id="nama_kriteria" class="form-control"
-                            placeholder="Masukkan Nama Kategori">
+                            placeholder="Masukkan Nama Kategori" onkeyup="uppercaseFormat()">
                     </div>
                 </div>
                 <div class="row">
@@ -50,3 +50,12 @@
         </form>
     </div>
 </div>
+
+<?= $this->section('scripts'); ?>
+<script>
+const uppercaseFormat = () => {
+    let value = $('#nama_kriteria').val().toUpperCase();
+    $('#nama_kriteria').val(value);
+}
+</script>
+<?= $this->endSection(); ?>

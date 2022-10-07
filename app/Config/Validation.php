@@ -47,4 +47,10 @@ class Validation extends BaseConfig
         'bobot' => 'required',
         'status' => 'required'
     ];
+
+    public $pendaftar = [
+        'nik' => 'required|is_unique[pendaftar.nik,id,{id}]|numeric',
+        'nama' => 'required',
+        'alamat' => 'required'
+    ];
 }

@@ -46,6 +46,16 @@ $routes->group('kriteria', function($routes) {
     $routes->delete('delete/(:any)', 'KriteriaController::delete/$1', ['as' => 'kriteria.delete']);
 });
 
+$routes->group('pendaftar', function($routes) {
+    $routes->get('/', 'PendaftarController::index', ['as' => 'pendaftar.index']);
+    $routes->get('create', 'PendaftarController::create', ['as' =>'pendaftar.create']);
+    $routes->post('create', 'PendaftarController::store', ['as' =>'pendaftar.store']);
+    $routes->get('detail/(:any)', 'PendaftarController::detail/$1', ['as' => 'pendaftar.detail']);
+    $routes->get('edit/(:any)', 'PendaftarController::edit/$1', ['as' => 'pendaftar.edit']);
+    $routes->put('edit/(:any)', 'PendaftarController::update/$1', ['as' => 'pendaftar.update']);
+    $routes->delete('delete/(:any)', 'PendaftarController::delete/$1', ['as' => 'pendaftar.delete']);
+});
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
