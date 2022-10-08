@@ -25,6 +25,13 @@
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
+        <!-- Pengguna -->
+        <li class="menu-item <?= $title == 'Pengguna' ? 'active' : null ?>">
+            <a href="<?= route_to('pengguna.index'); ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div data-i18n="Analytics">Pengguna</div>
+            </a>
+        </li>
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Penilaian</span>
         </li>
@@ -35,7 +42,7 @@
                 <div data-i18n="Analytics">Kriteria</div>
             </a>
         </li>
-        <!-- Kategori -->
+        <!-- Pendaftar -->
         <li class="menu-item <?= $title == 'Pendaftar' ? 'active' : null ?>">
             <a href="<?= route_to('pendaftar.index'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>

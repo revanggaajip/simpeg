@@ -2,7 +2,7 @@
 <div class="modal fade" id="createModal" data-bs-backdrop="static" tabindex="-1" style="display: none;"
     aria-hidden="true">
     <div class="modal-dialog">
-        <form class="modal-content" action="<?= route_to('kriteria.store'); ?>" method="POST">
+        <form class="modal-content" action="<?= route_to('pengguna.store'); ?>" method="POST">
             <?= csrf_field(); ?>
             <div class="modal-header">
                 <h5 class="modal-title" id="backDropModalTitle">Tambah <?= $title; ?></h5>
@@ -11,33 +11,30 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col mb-3">
-                        <label for="id" class="form-label">Id Kriteria</label>
-                        <input type="text" id="id" name="id" class="form-control" placeholder="Masukkan Id Kategori"
-                            value="<?= $id; ?>" readonly>
+                        <label for="nama" class="form-label">Nama Pengguna</label>
+                        <input type="text" name="nama" id="nama_pengguna" class="form-control"
+                            placeholder="Masukkan Nama Pengguna" onkeyup="uppercaseFormat()">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col mb-3">
-                        <label for="nama" class="form-label">Nama Kriteria</label>
-                        <input type="text" name="nama" id="nama_kriteria" class="form-control"
-                            placeholder="Masukkan Nama Kategori" onkeyup="uppercaseFormat()">
+                        <label for="email" class="form-label">Email Pengguna</label>
+                        <input type="email" name="email" id="email_pengguna" class="form-control"
+                            placeholder="Masukkan Email Pengguna">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col mb-3">
-                        <label for="bobot" class="form-label">Bobot Kriteria</label>
-                        <input type="number" name="bobot" id="number_kriteria" class="form-control"
-                            placeholder="Masukkan Bobot Kategori">
+                        <label for="password" class="form-label">Password Pengguna</label>
+                        <input type="password" name="password" id="password_pengguna" class="form-control"
+                            placeholder="Masukkan Password Pengguna">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col mb-3">
-                        <label for="status" class="form-label">Status Kriteria</label>
-                        <select name="status" id="status" class="form-control">
-                            <option value="" disabled selected>Pilih Status Kriteria</option>
-                            <option value="benefit">Benefit</option>
-                            <option value="cost">Cost</option>
-                        </select>
+                        <label for="konfirmasi_password" class="form-label">Konfirmasi Password Pengguna</label>
+                        <input type="password" name="konfirmasi_password" id="konfirmasi_password_pengguna"
+                            class="form-control" placeholder="Masukkan Konfirmasi Password Pengguna">
                     </div>
                 </div>
             </div>
@@ -50,3 +47,12 @@
         </form>
     </div>
 </div>
+
+<?= $this->section('scripts'); ?>
+<script>
+const uppercaseFormat = () => {
+    let value = $('#nama_pengguna').val().toUpperCase();
+    $('#nama_pengguna').val(value);
+}
+</script>
+<?= $this->endSection(); ?>

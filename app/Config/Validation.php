@@ -53,4 +53,10 @@ class Validation extends BaseConfig
         'nama' => 'required',
         'alamat' => 'required'
     ];
+
+    public $pengguna = [
+        'nama' => 'required',
+        'email' => 'required|valid_email|is_unique[pengguna.email,id,{id}]',
+        'password' => 'required'
+    ];
 }

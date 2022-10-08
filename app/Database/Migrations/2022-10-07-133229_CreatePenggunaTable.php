@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreatePendaftarTable extends Migration
+class CreatePenggunaTable extends Migration
 {
     public function up()
     {
@@ -15,17 +15,22 @@ class CreatePendaftarTable extends Migration
                 'unsigned'          => true,
                 'auto_increment'    => true
             ],
-            'nik'          => [
-                'type'          => 'CHAR',
-                'constraint'    => 16,
-                'unique'        => true
-            ],
             'nama'          => [
                 'type'          => 'VARCHAR',
                 'constraint'    => 100
             ],
-            'alamat'          => [
-                'type'          => 'TEXT',
+            'email'         => [
+                'type'              => 'VARCHAR',
+                'constraint'        => 100
+            ],
+            'password'      => [
+                'type'              => 'VARCHAR',
+                'constraint'        => 255
+            ],
+            'role'          => [
+                'type'              => 'VARCHAR',
+                'constraint'        => 100,
+                'default'           => 'admin'
             ],
             'created_at'    => [
                 'type'          => 'DATETIME',
@@ -34,14 +39,14 @@ class CreatePendaftarTable extends Migration
             'updated_at'    => [
                 'type'          => 'DATETIME',
                 'null'          => TRUE
-            ],
+            ]
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('pendaftar');
+        $this->forge->createTable('pengguna');
     }
-
+    
     public function down()
     {
-        $this->forge->dropTable('pendaftar');
+        $this->forge->dropTable('pengguna');
     }
 }

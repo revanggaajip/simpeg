@@ -13,7 +13,7 @@
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
                 <i class="bx bx-plus-circle"></i> Tambah
             </button>
-            <?= $this->include('kriteria/create'); ?>
+            <?= $this->include('pengguna/create'); ?>
         </div>
     </div>
     <div class="card-body">
@@ -22,80 +22,59 @@
                 <thead class="text-center mt-2">
                     <tr>
                         <th>No</th>
-                        <th>Id</th>
                         <th>Nama</th>
-                        <th>Bobot</th>
-                        <th>Status</th>
+                        <th>Email</th>
+                        <th>Role</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($listKriteria as $key => $kriteria) :?>
+                    <?php foreach($listPengguna as $key => $pengguna) :?>
                     <tr>
                         <td><?= $key + 1; ?></td>
-                        <td><?= $kriteria['id']; ?></td>
-                        <td><?= $kriteria['nama']; ?></td>
-                        <td><?= $kriteria['bobot']; ?></td>
-                        <td><?= $kriteria['status']; ?></td>
+                        <td><?= $pengguna['nama']; ?></td>
+                        <td><?= $pengguna['email']; ?></td>
+                        <td><?= $pengguna['role']; ?></td>
                         <td>
                             <!-- Button Edit -->
                             <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#editModal-<?= $kriteria['id']; ?>">
+                                data-bs-target="#editModal-<?= $pengguna['id']; ?>">
                                 <i class="bx bx-edit"></i> Edit
                             </button>
 
                             <!-- Modal Edit -->
-                            <div class="modal fade" id="editModal-<?= $kriteria['id']; ?>" data-bs-backdrop="static"
+                            <div class="modal fade" id="editModal-<?= $pengguna['id']; ?>" data-bs-backdrop="static"
                                 tabindex="-1" style="display: none;" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <form class="modal-content"
-                                        action="<?= route_to('kriteria.update', $kriteria['id']); ?>" method="POST">
+                                        action="<?= route_to('pengguna.update', $pengguna['id']); ?>" method="POST">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="PUT">
+                                        <input type="hidden" name="password" value="<?= $pengguna['password']; ?>">
+                                        <input type="hidden" name="role" value="<?= $pengguna['role']; ?>">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="backDropModalTitle">Edit Kriteria</h5>
+                                            <h5 class="modal-title" id="backDropModalTitle">Edit Pengguna</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <div class="id">
-                                                <div class="col mb-3">
-                                                    <label for="id" class="form-label">Id Kriteria</label>
-                                                    <input type="text" id="id" name="id" class="form-control"
-                                                        placeholder="Masukkan Id Kategori"
-                                                        value="<?= $kriteria['id']; ?>" readonly>
-                                                </div>
-                                            </div>
                                             <div class="row">
                                                 <div class="col mb-3">
-                                                    <label for="edit_nama" class="form-label">Nama Kriteria</label>
-                                                    <input type="text" name="nama" id="edit_nama_kriteria"
-                                                        class="form-control" placeholder="Masukkan Nama Kriteria"
-                                                        value="<?= $kriteria['nama']; ?>"
+                                                    <label for="edit_nama_pengguna" class="form-label">
+                                                        Nama Pengguna
+                                                    </label>
+                                                    <input type="text" name="nama" id="edit_nama_pengguna"
+                                                        class="form-control" placeholder="Masukkan Nama Pengguna"
+                                                        value="<?= $pengguna['nama']; ?>"
                                                         onkeyup="uppercaseFormatEdit()">
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col mb-3">
-                                                    <label for="bobot" class="form-label">Bobot Kriteria</label>
-                                                    <input type="number" name="bobot" id="number_kriteria"
-                                                        class="form-control" placeholder="Masukkan Bobot Kategori"
-                                                        value="<?= $kriteria['bobot']; ?>">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col mb-3">
-                                                    <label for="status" class="form-label">Status Kriteria</label>
-                                                    <select name="status" id="status" class="form-control">
-                                                        <option value="" disabled>Pilih Status Kriteria
-                                                        </option>
-                                                        <option value="benefit"
-                                                            <?= $kriteria['status'] == 'benefit' ? 'selected' : null; ?>>
-                                                            Benefit</option>
-                                                        <option value="cost"
-                                                            <?= $kriteria['status'] == 'cost' ? 'selected' : null; ?>>
-                                                            Cost</option>
-                                                    </select>
+                                                    <label for="email" class="form-label">Email Pengguna</label>
+                                                    <input type="email" name="email" id="email_pengguna"
+                                                        class="form-control" placeholder="Masukkan Email Pengguna"
+                                                        value="<?= $pengguna['email']; ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -113,25 +92,26 @@
 
                             <!-- Button Delete -->
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#deleteModal-<?= $kriteria['id']; ?>">
+                                data-bs-target="#deleteModal-<?= $pengguna['id']; ?>">
                                 <i class="bx bx-trash"></i> Hapus
                             </button>
 
                             <!-- Modal Delete-->
-                            <div class="modal fade" id="deleteModal-<?= $kriteria['id']; ?>" data-bs-backdrop="static"
+                            <div class="modal fade" id="deleteModal-<?= $pengguna['id']; ?>" data-bs-backdrop="static"
                                 tabindex="-1" style="display: none;" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <form class="modal-content"
-                                        action="<?= route_to('kriteria.delete', $kriteria['id']); ?>" method="POST">
+                                        action="<?= route_to('pengguna.delete', $pengguna['id']); ?>" method="POST">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="DELETE">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="backDropModalTitle">Hapus Kriteria</h5>
+                                            <h5 class="modal-title" id="backDropModalTitle">Hapus Pengguna</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <p>Apakah anda yakin untuk menghapus kriteria <?= $kriteria['nama']; ?></p>
+                                            <p>Apakah anda yakin untuk menghapus Pengguna
+                                                <?= $pengguna['nama']; ?></p>
                                         </div>
                                         <div class="modal-footer d-flex justify-content-between">
                                             <button type="button" class="btn btn-outline-danger"
@@ -164,15 +144,9 @@
 $(document).ready(function() {
     $('#dataTables').DataTable();
 });
-
-const uppercaseFormat = () => {
-    let value = $('#nama_kriteria').val().toUpperCase();
-    $('#nama_kriteria').val(value);
-}
 const uppercaseFormatEdit = () => {
-    let value = $('#edit_nama_kriteria').val().toUpperCase();
-    $('#edit_nama_kriteria').val(value);
+    let value = $('#edit_nama_pengguna').val().toUpperCase();
+    $('#edit_nama_pengguna').val(value);
 }
 </script>
-
 <?= $this->endSection(); ?>
