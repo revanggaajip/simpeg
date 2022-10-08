@@ -36,8 +36,10 @@
     <!-- Page CSS -->
     <!-- Page -->
     <link rel="stylesheet" href="<?= base_url() ?>/vendor/css/pages/page-auth.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>/vendor/libs/sweetalert2/sweetalert2.min.css" />
     <!-- Helpers -->
     <script src="<?= base_url() ?>/vendor/js/helpers.js"></script>
+
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
@@ -145,7 +147,7 @@
     <script src="<?= base_url() ?>/vendor/libs/popper/popper.js"></script>
     <script src="<?= base_url() ?>/vendor/js/bootstrap.js"></script>
     <script src="<?= base_url() ?>/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
+    <script src="<?= base_url() ?>/vendor/libs/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="<?= base_url() ?>/vendor/js/menu.js"></script>
     <!-- endbuild -->
 

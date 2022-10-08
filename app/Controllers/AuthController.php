@@ -40,12 +40,12 @@ class AuthController extends BaseController
             // Jika password yang diinput tidak sesuai
             } else {
                 // redirect ke halaman login + pesan kesalahan
-                return redirect()->to(route_to('login.index'))->withInput()->with('error', 'Password salah / tidak sesuai');
+                return redirect()->back()->withInput()->with('error', 'Password salah / tidak sesuai');
             }
             // Jika data pengguna tidak ditemukan
         } else {
             // redirect ke halaman login + pesan kesalahan
-            return redirect()->to(route_to('login.index'))->withInput()->with('user', 'Username tidak ditemukan');
+            return redirect()->back()->withInput()->with('error', 'Username tidak ditemukan');
         }
     }
 

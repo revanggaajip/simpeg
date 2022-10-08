@@ -26,7 +26,7 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <span class="fw-semibold d-block pt-2">Admin</span>
+                                    <span class="fw-semibold d-block pt-2"><?= session('nama') ?? 'Admin'; ?></span>
                                 </div>
                             </div>
                         </a>
