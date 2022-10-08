@@ -35,13 +35,15 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'DashboardController::index');
+$routes->get('/', 'DashboardController::index', ['as' => 'dashboard.index']);
+
+$routes->get('login', 'AuthController::login', ['as' => 'login.index']);
+$routes->post('login', 'AuthController::loginAction', ['as' => 'login.action']);
+$routes->get('logout', 'AuthController::logout', ['as' => 'logout.index']);
+
 $routes->group('kriteria', function($routes) {
     $routes->get('/', 'KriteriaController::index', ['as' => 'kriteria.index']);
-    // $routes->get('create', 'KriteriaController::create', ['as' =>'kriteria.create']);
     $routes->post('create', 'KriteriaController::store', ['as' =>'kriteria.store']);
-    // $routes->get('detail/(:any)', 'KriteriaController::detail/$1', ['as' => 'kriteria.detail']);
-    // $routes->get('edit/(:any)', 'KriteriaController::edit/$1', ['as' => 'kriteria.edit']);
     $routes->put('edit/(:any)', 'KriteriaController::update/$1', ['as' => 'kriteria.update']);
     $routes->delete('delete/(:any)', 'KriteriaController::delete/$1', ['as' => 'kriteria.delete']);
 });
