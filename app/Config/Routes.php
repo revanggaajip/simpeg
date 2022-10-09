@@ -69,8 +69,10 @@ $routes->group('pendaftar', function($routes) {
 
 $routes->group('penilaian', function($routes) {
     $routes->get('/', 'PenilaianController::index', ['as' => 'penilaian.index']);
-    $routes->get('detail/(:any)', 'PenilaianController::detail/$1', ['as' => 'penilaian.detail']);
     $routes->post('create/(:any)', 'PenilaianController::store/$1', ['as' => 'penilaian.store']);
+    $routes->put('detail/edit/(:any)', 'PenilaianController::update/$1', ['as' => 'penilaian.update']);
+    $routes->delete('detail/delete/(:any)', 'PenilaianController::delete/$1', ['as' => 'penilaian.delete']);
+    $routes->get('detail/(:any)', 'PenilaianController::detail/$1', ['as' => 'penilaian.detail']);
 });
 
 /*

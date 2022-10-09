@@ -62,4 +62,46 @@ class PenilaianController extends BaseController
             return redirect()->to(route_to('penilaian.detail', $id))->with('error', 'Data penilaian gagal disimpan');             
         }
     }
+
+    public function update($id)
+    {
+        // panggil helper validasi input data
+        $validation = $this->services::validation();
+
+        // Ambil data dari database
+        $data = $this->penilaian->where('id', $id)->first();
+        // Ambil data dari inputan
+        $penilaian = [
+            'id' => $id,
+            'id_pendaftar' => $data['id_pendaftar'],
+            'id_kriteria' => $data['id_kriteria'],
+            'nilai_kriteria' => $this->request->getVar('nilai_kriteria'),
+        ];
+        // Lakukan validasi
+        if($validation->run($penilaian, 'penilaian')) {
+            //jika validasi sukses
+            // Simpan Data
+            $this->penilaian->save($penilaian, ['id' => $id]);
+            // Redirect + pesan sukses
+            return redirect()->to(route_to('penilaian.detail', $data['id_pendaftar']))->with('success', 'Data penilaian berhasil disimpan');
+        } 
+        // jika validasi gagal
+        else {
+            // Meneruskan data error dari validasi ke view
+            session()->setFlashdata('errors', $validation->getErrors());
+            // Redirect + pesan gagal
+            return redirect()->to(route_to('penilaian.detail', $data['id_pendaftar']))->with('error', 'Data penilaian gagal disimpan');             
+        }
+    }
+
+    public function delete($id)
+    {
+        $penilaian = $this->penilaian->where('id', $id)->first();
+        $deleted = $this->penilaian->delete(['id' => $id]);
+        if($deleted) {
+            return redirect()->to(route_to('penilaian.detail', $penilaian['id_pendaftar']))->with('success', 'Data penilaian berhasil dihapus');
+        } else {
+            return redirect()->to(route_to('kriteria.detail', $penilaian['id_pendaftar']))->with('error', 'Data penilaian gagal dihapus');             
+        }
+    }
 }

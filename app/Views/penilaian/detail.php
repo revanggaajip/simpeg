@@ -10,7 +10,7 @@
         <h4 class="my-auto">Detail <?= $title; ?> (<?= $pendaftar['nama']; ?>)</h4>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
-            <i class="bx bx-plus-circle"></i> Tambah
+            <i class="bx bx-plus-circle"></i> Input Nilai
         </button>
         <!-- Modal -->
         <div class="modal fade" id="createModal" data-bs-backdrop="static" tabindex="-1" style="display: none;"
@@ -90,8 +90,6 @@
                                         action="<?= route_to('penilaian.update', $penilaian['id']); ?>" method="POST">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="PUT">
-                                        <input type="hidden" name="id_kriteria"
-                                            value="<?= $penilaian['id_kriteria']; ?>">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="backDropModalTitle">Edit <?= $title; ?></h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
