@@ -59,4 +59,9 @@ class Validation extends BaseConfig
         'email' => 'required|valid_email|is_unique[pengguna.email,id,{id}]',
         'password' => 'required'
     ];
+
+    public $penilaian = [
+        'id_kriteria' => 'required',
+        'nilai_kriteria' => 'required',
+    ];
 }

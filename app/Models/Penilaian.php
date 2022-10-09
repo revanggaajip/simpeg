@@ -6,37 +6,17 @@ use CodeIgniter\Model;
 
 class Penilaian extends Model
 {
-    protected $DBGroup          = 'default';
-    protected $table            = 'penilaians';
-    protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
-    protected $insertID         = 0;
-    protected $returnType       = 'array';
+    protected $table            = 'penilaian';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['id', 'id_pendaftar', 'id_kriteria', 'nilai_kriteria'];
+    protected $useTimestamps    = true;
+  
+    public function unSelected($id){
+        $result = $this->db->query("SELECT kriteria.* FROM `kriteria` WHERE kriteria.id NOT IN 
+        (SELECT kriteria.id FROM kriteria JOIN penilaian ON kriteria.id = penilaian.id_kriteria 
+        WHERE penilaian.id_pendaftar = '$id')")->getResultArray();
+        return $result;
+    }
 
-    // Dates
-    protected $useTimestamps = false;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
-
-    // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
-
-    // Callbacks
-    protected $allowCallbacks = true;
-    protected $beforeInsert   = [];
-    protected $afterInsert    = [];
-    protected $beforeUpdate   = [];
-    protected $afterUpdate    = [];
-    protected $beforeFind     = [];
-    protected $afterFind      = [];
-    protected $beforeDelete   = [];
-    protected $afterDelete    = [];
 }

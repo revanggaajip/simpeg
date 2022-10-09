@@ -40,6 +40,8 @@ $routes->get('/', 'DashboardController::index', ['as' => 'dashboard.index']);
 $routes->get('login', 'AuthController::login', ['as' => 'login.index']);
 $routes->post('login', 'AuthController::loginAction', ['as' => 'login.action']);
 $routes->get('logout', 'AuthController::logout', ['as' => 'logout.index']);
+$routes->get('edit-password', 'AuthController::editPassword', ['as' => 'password.edit']);
+$routes->get('edit-password', 'AuthController::updatePassword', ['as' => 'password.update']);
 
 $routes->group('kriteria', function($routes) {
     $routes->get('/', 'KriteriaController::index', ['as' => 'kriteria.index']);
@@ -63,6 +65,12 @@ $routes->group('pendaftar', function($routes) {
     $routes->get('edit/(:any)', 'PendaftarController::edit/$1', ['as' => 'pendaftar.edit']);
     $routes->put('edit/(:any)', 'PendaftarController::update/$1', ['as' => 'pendaftar.update']);
     $routes->delete('delete/(:any)', 'PendaftarController::delete/$1', ['as' => 'pendaftar.delete']);
+});
+
+$routes->group('penilaian', function($routes) {
+    $routes->get('/', 'PenilaianController::index', ['as' => 'penilaian.index']);
+    $routes->get('detail/(:any)', 'PenilaianController::detail/$1', ['as' => 'penilaian.detail']);
+    $routes->post('create/(:any)', 'PenilaianController::store/$1', ['as' => 'penilaian.store']);
 });
 
 /*
