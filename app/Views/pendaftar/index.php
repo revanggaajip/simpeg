@@ -21,6 +21,7 @@
                         <th>NIK</th>
                         <th>Nama</th>
                         <th>Alamat</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -31,6 +32,7 @@
                         <td><?= $pendaftar['nik']; ?></td>
                         <td><?= $pendaftar['nama']; ?></td>
                         <td><?= $pendaftar['alamat']; ?></td>
+                        <td><?= $pendaftar['status']; ?></td>
                         <td>
                             <!-- Button Detail -->
                             <a href="<?= route_to('pendaftar.edit', $pendaftar['id']); ?>"

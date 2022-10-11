@@ -11,8 +11,17 @@ class Pendaftar extends Model
     protected $useAutoIncrement = true;
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id', 'nik', 'nama', 'alamat'];
-
-    // Dates
+    protected $allowedFields    = ['id', 'nik', 'nama', 'alamat', 'status'];
     protected $useTimestamps = true;
+
+    public function penilaianPendaftar()
+    {
+        $result = $this->join("penilaian", "penilaian.id_pendaftar = pendaftar.id", "left")
+        ->select('pendaftar.id,pendaftar.nik,pendaftar.nama,count(penilaian.id) as penilaian')
+        ->groupBy('pendaftar.id')
+        ->where('pendaftar.status','aktif')
+        ->orderBy('pendaftar.created_at', 'DESC')
+        ->findAll();
+        return $result;
+    }
 }

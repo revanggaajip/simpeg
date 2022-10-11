@@ -161,6 +161,12 @@
             </table>
         </div>
     </div>
+    <div class="card-footer">
+        <a href="<?= route_to('penilaian.index'); ?>" class="btn btn-danger btn-sm">
+            <i class="bx bx-chevron-left"></i>
+            Kembali
+        </a>
+    </div>
 </div>
 <?= $this->endSection(); ?>
 

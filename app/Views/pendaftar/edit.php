@@ -49,6 +49,24 @@ Edit <?= $title; ?>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="status_pendaftar" class="form-label">Status Pendaftar</label>
+                    <select name="status" id="status_pendaftar"
+                        class="form-control <?= $validation->hasError('status') ? 'is-invalid': null ?>">
+                        <option value="" disabled>Pilih Status Pendaftar</option>
+                        <option value="aktif"
+                            <?= (old('status') ?? $pendaftar['status']) == 'aktif' ? 'selected' : null; ?>>Aktif
+                        </option>
+                        <option value="tidak aktif"
+                            <?= (old('status') ?? $pendaftar['status']) == 'tidak aktif' ? 'selected' : null; ?>>Tidak
+                            Aktif</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('status'); ?>
+                    </div>
+                </div>
+            </div>
             <div class="d-flex justify-content-between">
                 <a href="<?= route_to('pendaftar.index'); ?>" class="btn btn-danger">
                     <i class="bx bx-x-circle"></i> Batal

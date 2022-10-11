@@ -22,7 +22,8 @@ class PenilaianController extends BaseController
     public function index()
     {
         $data['title'] = $this->title;
-        $data['listPendaftar'] = $this->pendaftar->orderBy('created_at', 'DESC')->findAll();
+        $data['listPendaftar'] = $this->pendaftar->penilaianPendaftar();
+        $data['jumlahKriteria'] = $this->kriteria->countAllResults();
         return view('penilaian/index', $data);
     }
     

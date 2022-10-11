@@ -14,7 +14,7 @@ Tambah <?= $title; ?>
             <?= csrf_field(); ?>
             <div class="row">
                 <div class="col mb-3">
-                    <label for="nik" class="form-label">NIK Pendaftar</label>
+                    <label for="nik_pendaftar" class="form-label">NIK Pendaftar</label>
                     <input type="text" name="nik" id="nik_pendaftar"
                         class="form-control <?= $validation->hasError('nik') ? 'is-invalid': null ?>"
                         placeholder="Masukkan NIK Pendaftar" value="<?= old('nik'); ?>">
@@ -25,7 +25,7 @@ Tambah <?= $title; ?>
             </div>
             <div class="row">
                 <div class="col mb-3">
-                    <label for="nama" class="form-label">Nama Pendaftar</label>
+                    <label for="nama_pendaftar" class="form-label">Nama Pendaftar</label>
                     <input type="text" name="nama" id="nama_pendaftar"
                         class="form-control <?= $validation->hasError('nama') ? 'is-invalid': null ?>"
                         placeholder="Masukkan Nama Pendaftar" onkeyup="uppercaseFormat()" value="<?= old('nama'); ?>">
@@ -36,7 +36,7 @@ Tambah <?= $title; ?>
             </div>
             <div class="row">
                 <div class="col mb-3">
-                    <label for="alamat" class="form-label">Alamat Pendaftar</label>
+                    <label for="alamat_pendaftar" class="form-label">Alamat Pendaftar</label>
                     <textarea name="alamat" id="alamat_pendaftar" rows="5"
                         class="form-control <?= $validation->hasError('alamat') ? 'is-invalid': null ?>"
                         placeholder="Masukkan Alamat Pendaftar">
@@ -44,6 +44,20 @@ Tambah <?= $title; ?>
                     </textarea>
                     <div class="invalid-feedback">
                         <?= $validation->getError('alamat'); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="status_pendaftar" class="form-label">Status Pendaftar</label>
+                    <select name="status" id="status_pendaftar"
+                        class="form-control <?= $validation->hasError('status') ? 'is-invalid': null ?>">
+                        <option value="" disabled selected>Pilih Status Pendaftar</option>
+                        <option value="aktif">Aktif</option>
+                        <option value="tidak aktif">Tidak Aktif</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('status'); ?>
                     </div>
                 </div>
             </div>

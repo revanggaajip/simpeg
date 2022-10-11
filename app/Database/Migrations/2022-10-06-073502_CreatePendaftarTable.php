@@ -27,6 +27,11 @@ class CreatePendaftarTable extends Migration
             'alamat'          => [
                 'type'          => 'TEXT',
             ],
+            'status'          => [
+                'type'          => 'ENUM',
+                'constraint'    =>'"aktif", "tidak aktif"',
+                'default'       =>'aktif'
+            ],
             'created_at'    => [
                 'type'          => 'DATETIME',
                 'null'          => TRUE

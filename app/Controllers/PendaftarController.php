@@ -43,6 +43,7 @@ class PendaftarController extends BaseController
             'nama' => $this->request->getVar('nama'),
             'nik' => $this->request->getVar('nik'),
             'alamat' => $this->request->getVar('alamat'),
+            'status' => $this->request->getVar('status')
         ];
          // Lakukan validasi
         if($validation->run($pendaftar, 'pendaftar')) {
@@ -88,9 +89,11 @@ class PendaftarController extends BaseController
 
         // Ambil data dari inputan
         $pendaftar = [
+            'id' => $id,
             'nama' => $this->request->getVar('nama'),
             'nik' => $this->request->getVar('nik'),
             'alamat' => $this->request->getVar('alamat'),
+            'status' => $this->request->getVar('status')
         ];
          // Lakukan validasi
         if($validation->run($pendaftar, 'pendaftar')) {

@@ -49,11 +49,18 @@
                 <div data-i18n="Analytics">Pendaftar</div>
             </a>
         </li>
-        <!-- Pendaftar -->
+        <!-- Penilaian -->
         <li class="menu-item <?= $title == 'Penilaian' ? 'active' : null ?>">
             <a href="<?= route_to('penilaian.index'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-clipboard"></i>
                 <div data-i18n="Analytics">Penilaian</div>
+            </a>
+        </li>
+        <!-- Perhitungan -->
+        <li class="menu-item <?= $title == 'Perhitungan' ? 'active' : null ?>">
+            <a href="<?= route_to('penilaian.index'); ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-calculator"></i>
+                <div data-i18n="Analytics">Perhitungan</div>
             </a>
         </li>
     </ul>

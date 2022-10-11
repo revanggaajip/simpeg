@@ -51,7 +51,8 @@ class Validation extends BaseConfig
     public $pendaftar = [
         'nik' => 'required|is_unique[pendaftar.nik,id,{id}]|numeric',
         'nama' => 'required',
-        'alamat' => 'required'
+        'alamat' => 'required',
+        'status' => 'required'
     ];
 
     public $pengguna = [

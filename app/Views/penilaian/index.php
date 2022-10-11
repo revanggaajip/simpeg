@@ -14,10 +14,11 @@
             <table class="table table-striped" id="dataTables" width="100%" cellspacing="0">
                 <thead class="text-center mt-2">
                     <tr>
-                        <th>No</th>
-                        <th>NIK</th>
+                        <th width="5%">No</th>
+                        <th width="25">NIK</th>
                         <th>Nama</th>
-                        <th>Aksi</th>
+                        <th width="15%">Keterangan</th>
+                        <th width="18%">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,13 @@
                         <td><?= $key + 1; ?></td>
                         <td><?= $pendaftar['nik']; ?></td>
                         <td><?= $pendaftar['nama']; ?></td>
+                        <td>
+                            <?php if($pendaftar['penilaian'] < $jumlahKriteria) : ?>
+                            <span class="badge rounded-pill bg-label-secondary">Tidak Lengkap</span>
+                            <?php else : ?>
+                            <span class="badge rounded-pill bg-label-primary">Lengkap</span>
+                            <?php endif; ?>
+                        </td>
                         <td>
                             <!-- Button Detail -->
                             <a href="<?= route_to('penilaian.detail', $pendaftar['id']); ?>"
