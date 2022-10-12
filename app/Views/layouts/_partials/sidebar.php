@@ -45,7 +45,7 @@
         <!-- Pendaftar -->
         <li class="menu-item <?= $title == 'Pendaftar' ? 'active' : null ?>">
             <a href="<?= route_to('pendaftar.index'); ?>" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-user"></i>
+                <i class="menu-icon tf-icons bx bx-user-pin"></i>
                 <div data-i18n="Analytics">Pendaftar</div>
             </a>
         </li>
@@ -61,6 +61,13 @@
             <a href="<?= route_to('penilaian.index'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-calculator"></i>
                 <div data-i18n="Analytics">Perhitungan</div>
+            </a>
+        </li>
+        <!-- laporan -->
+        <li class="menu-item <?= $title == 'laporan' ? 'active' : null ?>">
+            <a href="<?= route_to('penilaian.index'); ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-bookmark"></i>
+                <div data-i18n="Analytics">Laporan</div>
             </a>
         </li>
     </ul>
