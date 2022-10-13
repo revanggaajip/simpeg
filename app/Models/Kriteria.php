@@ -13,4 +13,11 @@ class Kriteria extends Model
     protected $allowedFields    = ['id','nama', 'bobot', 'status'];
     protected $useTimestamps    = true;
     protected $useSoftDeletes   = true;
+
+    public function unSelected($id)
+    {
+        return $this->select('kriteria.*')->where("kriteria.id NOT IN 
+        (SELECT kriteria.id FROM kriteria JOIN penilaian ON kriteria.id = penilaian.id_kriteria 
+        WHERE penilaian.id_pendaftar = '$id')")->findAll();
+    }
 }

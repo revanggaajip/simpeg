@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\Kriteria;
 use App\Models\Pendaftar;
 use App\Models\Penilaian;
+use App\Models\Pilihan;
 use Config\Services;
 
 class PenilaianController extends BaseController
@@ -16,6 +17,7 @@ class PenilaianController extends BaseController
         $this->pendaftar = new Pendaftar();
         $this->kriteria = new Kriteria();
         $this->penilaian = new Penilaian();
+        $this->pilihan = new Pilihan();
         $this->services = new Services();
 
     }
@@ -33,35 +35,72 @@ class PenilaianController extends BaseController
         $data['pendaftar'] = $this->pendaftar->where('id', $id)->first();
         $data['listKriteria'] = $this->kriteria->findAll();
         $data['listPenilaian'] = $this->penilaian->where('id_pendaftar', $id)->findAll();
-        $data['unSelected'] = $this->penilaian->unSelected($id);
+        $data['unSelected'] = $this->kriteria->unSelected($id);
+        $data['listPilihan'] =  $this->pilihan->findAll();
         return view('penilaian/detail', $data);
     }
 
     public function store($id)
     {
-        // panggil helper validasi input data
-        $validation = $this->services::validation();
-        // Ambil data dari inputan
-        $penilaian = [
-            'id_pendaftar' => $id,
-            'id_kriteria' => $this->request->getVar('id_kriteria'),
-            'nilai_kriteria' => $this->request->getVar('nilai_kriteria'),
-        ];
-        // Lakukan validasi
-        if($validation->run($penilaian, 'penilaian')) {
-            //jika validasi sukses
-            // Simpan Data
-            $this->penilaian->save($penilaian);
-            // Redirect + pesan sukses
+        $jumlah = $this->request->getVar('nilai_kriteria');
+        if ($jumlah == true && count($jumlah) == $this->kriteria->countAllResults())
+        {
+            // tangkap jumlah data
+            $jumlahData = (count($this->request->getVar('nilai_kriteria'))) - 1;
+            // panggil helper validasi input data
+            $validation = $this->services::validation();
+            for($i = 0; $i <= $jumlahData; $i++) {
+                // Ambil data dari inputan
+                $penilaian = [
+                    'id_pendaftar' => $id,
+                    'id_kriteria' => $this->request->getVar('id_kriteria')[$i],
+                    'nilai_kriteria' => $this->request->getVar('nilai_kriteria')[$i],
+                ];
+                // Lakukan validasi
+                $hasilValidasi = $validation->run($penilaian, 'penilaian');
+    
+                // Jika Gagal
+                if (!$hasilValidasi) {
+                    // Meneruskan data error dari validasi ke view
+                    session()->setFlashdata('errors', $validation->getErrors());
+                    // Redirect + pesan gagal
+                    return redirect()->to(route_to('penilaian.detail', $id))->with('error', 'Data penilaian gagal disimpan');
+                //jika validasi sukses
+                } else {
+                    // Simpan Data
+                    $this->penilaian->save($penilaian);
+                }
+            }
             return redirect()->to(route_to('penilaian.detail', $id))->with('success', 'Data penilaian berhasil disimpan');
-        } 
-        // jika validasi gagal
-        else {
-            // Meneruskan data error dari validasi ke view
-            session()->setFlashdata('errors', $validation->getErrors());
-            // Redirect + pesan gagal
-            return redirect()->to(route_to('penilaian.detail', $id))->with('error', 'Data penilaian gagal disimpan');             
+        } else {
+            return redirect()->to(route_to('penilaian.detail', $id))->with('error', 'Semua data penilaian harus diisi');
         }
+
+    // public function store($id)
+    // {
+    //     // panggil helper validasi input data
+    //     $validation = $this->services::validation();
+    //     // Ambil data dari inputan
+    //     $penilaian = [
+    //         'id_pendaftar' => $id,
+    //         'id_kriteria' => $this->request->getVar('id_kriteria'),
+    //         'nilai_kriteria' => $this->request->getVar('nilai_kriteria'),
+    //     ];
+    //     // Lakukan validasi
+    //     if($validation->run($penilaian, 'penilaian')) {
+    //         //jika validasi sukses
+    //         // Simpan Data
+    //         $this->penilaian->save($penilaian);
+    //         // Redirect + pesan sukses
+    //         return redirect()->to(route_to('penilaian.detail', $id))->with('success', 'Data penilaian berhasil disimpan');
+    //     } 
+    //     // jika validasi gagal
+    //     else {
+    //         // Meneruskan data error dari validasi ke view
+    //         session()->setFlashdata('errors', $validation->getErrors());
+    //         // Redirect + pesan gagal
+    //         return redirect()->to(route_to('penilaian.detail', $id))->with('error', 'Data penilaian gagal disimpan');             
+    //     }
     }
 
     public function update($id)

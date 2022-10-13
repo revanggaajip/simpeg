@@ -65,4 +65,10 @@ class Validation extends BaseConfig
         'id_kriteria' => 'required',
         'nilai_kriteria' => 'required',
     ];
+
+    public $pilihan = [
+        'nama' => 'required',
+        'bobot' => 'required',
+        'id_kriteria' => 'required'
+    ];
 }

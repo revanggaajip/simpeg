@@ -48,6 +48,10 @@ $routes->group('kriteria', function($routes) {
     $routes->post('create', 'KriteriaController::store', ['as' =>'kriteria.store']);
     $routes->put('edit/(:any)', 'KriteriaController::update/$1', ['as' => 'kriteria.update']);
     $routes->delete('delete/(:any)', 'KriteriaController::delete/$1', ['as' => 'kriteria.delete']);
+    $routes->post('pilihan/store/(:any)', 'KriteriaController::pilihanStore/$1', ['as' => 'kriteria.pilihanStore']);
+    $routes->put('pilihan/update/(:any)', 'KriteriaController::pilihanUpdate/$1', ['as' => 'kriteria.pilihanUpdate']);
+    $routes->delete('pilihan/delete/(:any)', 'KriteriaController::pilihanDelete/$1', ['as' => 'kriteria.pilihanDelete']);
+    $routes->get('pilihan/(:any)', 'KriteriaController::pilihan/$1', ['as' => 'kriteria.pilihan']);
 });
 
 $routes->group('pengguna', function($routes) {

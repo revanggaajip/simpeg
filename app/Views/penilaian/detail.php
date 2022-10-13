@@ -24,23 +24,22 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <?php foreach($listKriteria as $key => $kriteria) : ?>
                         <div class="row">
                             <div class="col mb-3">
-                                <label for="id_kriteria" class="form-label">Nama Kriteria</label>
-                                <select name="id_kriteria" id="id_kriteria" class="form-control">
-                                    <?php foreach($unSelected as $kriteria) : ?>
-                                    <option value="<?= $kriteria['id']; ?>"><?= $kriteria['nama']; ?></option>
+                                <input type="hidden" name="id_kriteria[]" value="<?= $kriteria['id']; ?>">
+                                <label for="<?= $key; ?>" class="form-label"><?= $kriteria['nama']; ?></label>
+                                <select name="nilai_kriteria[]" id="<?= $key; ?>" class="form-control">
+                                    <option value="" selected disabled>Pilihan Kriteria</option>
+                                    <?php foreach($listPilihan as $key => $pilihan) :?>
+                                    <?php if($pilihan['id_kriteria'] == $kriteria['id']) : ?>
+                                    <option value="<?= $pilihan['bobot']; ?>"><?= $pilihan['nama']; ?></option>
+                                    <?php endif; ?>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col mb-3">
-                                <label for="nilai" class="form-label">Nilai Kriteria</label>
-                                <input type="number" name="nilai_kriteria" id="nilai_kriteria" class="form-control"
-                                    placeholder="Masukkan Nilai Kriteria">
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                     <div class="modal-footer d-flex justify-content-between">
                         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
@@ -98,10 +97,18 @@
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col mb-3">
-                                                    <label for="nilai" class="form-label">Nilai Kriteria</label>
-                                                    <input type="number" name="nilai_kriteria" id="nilai_kriteria"
-                                                        class="form-control" placeholder="Masukkan Nilai Kriteria"
-                                                        value="<?= $penilaian['nilai_kriteria']; ?>">
+                                                    <label for="nilai"
+                                                        class="form-label"><?= $kriteria['nama']; ?></label>
+                                                    <select name="nilai_kriteria" id="nilai" class="form-control">
+                                                        <option value="" disabled>Pilihan Kriteria</option>
+                                                        <?php foreach($listPilihan as $key => $pilihan) :?>
+                                                        <?php if($pilihan['id_kriteria'] == $kriteria['id']) : ?>
+                                                        <option value="<?= $pilihan['bobot']; ?>"
+                                                            <?= $penilaian['nilai_kriteria'] == $pilihan['bobot'] ? 'selected' : null ?>>
+                                                            <?= $pilihan['nama']; ?></option>
+                                                        <?php endif; ?>
+                                                        <?php endforeach; ?>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -180,5 +187,8 @@
 $(document).ready(function() {
     $('#dataTables').DataTable();
 });
+const pilihanKriteria = () => {
+
+}
 </script>
 <?= $this->endSection(); ?>
