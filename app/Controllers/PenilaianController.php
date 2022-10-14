@@ -75,32 +75,6 @@ class PenilaianController extends BaseController
         } else {
             return redirect()->to(route_to('penilaian.detail', $id))->with('error', 'Semua data penilaian harus diisi');
         }
-
-    // public function store($id)
-    // {
-    //     // panggil helper validasi input data
-    //     $validation = $this->services::validation();
-    //     // Ambil data dari inputan
-    //     $penilaian = [
-    //         'id_pendaftar' => $id,
-    //         'id_kriteria' => $this->request->getVar('id_kriteria'),
-    //         'nilai_kriteria' => $this->request->getVar('nilai_kriteria'),
-    //     ];
-    //     // Lakukan validasi
-    //     if($validation->run($penilaian, 'penilaian')) {
-    //         //jika validasi sukses
-    //         // Simpan Data
-    //         $this->penilaian->save($penilaian);
-    //         // Redirect + pesan sukses
-    //         return redirect()->to(route_to('penilaian.detail', $id))->with('success', 'Data penilaian berhasil disimpan');
-    //     } 
-    //     // jika validasi gagal
-    //     else {
-    //         // Meneruskan data error dari validasi ke view
-    //         session()->setFlashdata('errors', $validation->getErrors());
-    //         // Redirect + pesan gagal
-    //         return redirect()->to(route_to('penilaian.detail', $id))->with('error', 'Data penilaian gagal disimpan');             
-    //     }
     }
 
     public function update($id)

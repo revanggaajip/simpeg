@@ -78,7 +78,7 @@
                                                     <input type="text" name="nama" id="edit_nama_kriteria"
                                                         class="form-control" placeholder="Masukkan Nama Kriteria"
                                                         value="<?= $kriteria['nama']; ?>"
-                                                        onkeyup="uppercaseFormatEdit()">
+                                                        onkeyup="editUppercaseFormat()">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -169,16 +169,15 @@
 <script>
 $(document).ready(function() {
     $('#dataTables').DataTable();
+    const uppercaseFormat = () => {
+        let value = $('#nama_kriteria').val().toUpperCase();
+        $('#nama_kriteria').val(value);
+    }
+    const editUppercaseFormat = () => {
+        let value = $('#edit_nama_kriteria').val().toUpperCase();
+        $('#edit_nama_kriteria').val(value);
+    }
 });
-
-const uppercaseFormat = () => {
-    let value = $('#nama_kriteria').val().toUpperCase();
-    $('#nama_kriteria').val(value);
-}
-const uppercaseFormatEdit = () => {
-    let value = $('#edit_nama_kriteria').val().toUpperCase();
-    $('#edit_nama_kriteria').val(value);
-}
 </script>
 
 <?= $this->endSection(); ?>
