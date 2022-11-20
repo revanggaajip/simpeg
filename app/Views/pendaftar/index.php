@@ -18,6 +18,7 @@
                 <thead class="text-center mt-2">
                     <tr>
                         <th>No</th>
+                        <th>ID</th>
                         <th>NIK</th>
                         <th>Nama</th>
                         <th>Alamat</th>
@@ -29,6 +30,7 @@
                     <?php foreach($listPendaftar as $key => $pendaftar) :?>
                     <tr>
                         <td><?= $key + 1; ?></td>
+                        <td>A-<?= $pendaftar['id']; ?></td>
                         <td><?= $pendaftar['nik']; ?></td>
                         <td><?= $pendaftar['nama']; ?></td>
                         <td><?= $pendaftar['alamat']; ?></td>

@@ -4,33 +4,31 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreatePendaftarTable extends Migration
+class CreateSeleksiDetailTable extends Migration
 {
     public function up()
     {
         $this->forge->addField([
-            'id'            => [
+            'id' => [
+                'type'  => 'BIGINT',
+                'constraint'    => 20,
+                'unsigned'      => true,
+                'auto_increment'=> true
+            ],
+            'id_pendaftar'      => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 10,
-                'unsigned'          => true,
-                'auto_increment'    => true
             ],
-            'nik'          => [
-                'type'          => 'CHAR',
-                'constraint'    => 16,
-                'unique'        => true
-            ],
-            'nama'          => [
+            'nama'   => [
                 'type'          => 'VARCHAR',
                 'constraint'    => 100
             ],
-            'alamat'          => [
-                'type'          => 'TEXT',
+            'nilai' => [
+                'type'          => 'FLOAT',
             ],
-            'status'          => [
-                'type'          => 'ENUM',
-                'constraint'    =>'"aktif", "tidak aktif"',
-                'default'       =>'aktif'
+            'penerima'          => [
+                'type'          => 'VARCHAR',
+                'constraint'    => 20
             ],
             'created_at'    => [
                 'type'          => 'DATETIME',
@@ -39,14 +37,14 @@ class CreatePendaftarTable extends Migration
             'updated_at'    => [
                 'type'          => 'DATETIME',
                 'null'          => TRUE
-            ],
+            ]
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('pendaftar');
+        $this->forge->createTable('seleksi_detail');
     }
-
+    
     public function down()
     {
-        $this->forge->dropTable('pendaftar');
+        $this->forge->dropTable('seleksi_detail');
     }
 }

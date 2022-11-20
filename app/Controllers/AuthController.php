@@ -49,11 +49,53 @@ class AuthController extends BaseController
         }
     }
 
+    public function editPassword()
+    {
+        // Judul
+        $data['title'] = 'Edit Password';
+        // tampilkan view editPassword
+        return view('auth/editPassword', $data);
+    }
+
+    public function updatePassword()
+    {
+        // Ambil data inputan password lama
+        $passwordLama = $this->request->getVar('password_lama');
+        // Ambil data pengguna dari database
+        $pengguna = $this->pengguna->where('id', session('id'))->first();
+        // Jika inputan password lama sesuai dengan password dari pengguna
+        if (password_verify($passwordLama, $pengguna['password'])) {
+            // Ambil data inputan password baru
+            $passwordBaru = $this->request->getVar('password_baru');
+            // Ambil data inputan konfirmasi
+            $konfirmPassword = $this->request->getVar('konfirm_password');
+            // Jika inputan password baru tidak sesuai password lama
+            if($passwordBaru != $konfirmPassword) {
+                // redirect + pesan gagal
+                return redirect()->to(route_to('password.edit'))->with('error', 'Konfirmasi Password Tidak Sesuai');
+            // jika inputan password baru sesuai password lama
+            } else {
+                // update password
+                $this->user->update(session('id'),[
+                    'password' => password_hash($passwordBaru, PASSWORD_DEFAULT)
+                ]);
+                // redirect + pesan sukses
+                return redirect()->to(route_to('password.edit'))->with('success', 'Password Berhasil Diubah');
+            }
+        // Jika inputan password lama tidak sesuai dengan password dari pengguna    
+        } else {
+            // Redirect + pesan error
+            return redirect()->to(route_to('password.edit'))->with('error', 'Password Lama Tidak Sesuai');
+        }
+    }
+
     public function logout() 
     {
+        // hapus session
         session()->remove('id');
         session()->remove('nama');
         session()->remove('role');
+        // redirect login page
         return redirect()->to(route_to('login.index'));
     }
 }

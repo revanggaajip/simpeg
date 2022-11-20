@@ -58,7 +58,7 @@
         </li>
         <!-- Perhitungan -->
         <li class="menu-item <?= $title == 'Perhitungan' ? 'active' : null ?>">
-            <a href="<?= route_to('penilaian.index'); ?>" class="menu-link">
+            <a href="<?= route_to('perhitungan.index'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-calculator"></i>
                 <div data-i18n="Analytics">Perhitungan</div>
             </a>

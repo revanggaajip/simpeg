@@ -35,22 +35,13 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
-                            <i class="bx bx-user me-2"></i>
-                            <span class="align-middle">My Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="<?= route_to('edit-password'); ?>">
+                        <a class="dropdown-item" href="<?= route_to('password.edit'); ?>">
                             <i class="bx bx-key me-2"></i>
                             <span class="align-middle">Ubah Password</span>
                         </a>
                     </li>
                     <li>
-                        <div class="dropdown-divider"></div>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="<?= route_to('logout'); ?>">
+                        <a class="dropdown-item" href="<?= route_to('logout.index'); ?>">
                             <i class="bx bx-power-off me-2"></i>
                             <span class="align-middle">Log Out</span>
                         </a>

@@ -71,4 +71,8 @@ class Validation extends BaseConfig
         'bobot' => 'required',
         'id_kriteria' => 'required'
     ];
+    public $perhitungan = [
+        'nama_program' => 'required',
+        'jumlah_kuota' => 'required',
+    ];
 }

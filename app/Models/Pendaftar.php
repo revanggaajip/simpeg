@@ -8,7 +8,7 @@ class Pendaftar extends Model
 {
     protected $table            = 'pendaftar';
     protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
+    protected $useAutoIncrement = false;
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ['id', 'nik', 'nama', 'alamat', 'status'];
