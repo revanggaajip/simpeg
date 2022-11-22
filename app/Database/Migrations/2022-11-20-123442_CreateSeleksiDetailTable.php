@@ -19,6 +19,11 @@ class CreateSeleksiDetailTable extends Migration
                 'type'              => 'VARCHAR',
                 'constraint'        => 10,
             ],
+            'id_seleksi_header' => [
+                'type'  => 'BIGINT',
+                'constraint'    => 20,
+                'unsigned'      => true,
+            ],
             'nama'   => [
                 'type'          => 'VARCHAR',
                 'constraint'    => 100

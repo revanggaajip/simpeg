@@ -6,7 +6,7 @@
 <?= $this->section('content'); ?>
 <div class="card">
     <div class="card-header mb-3">
-        <h4 class="my-auto">Informasi <?= $title; ?></h4>
+        <h4 class="my-auto"><?= $title; ?></h4>
     </div>
     <div class="card-body">
         <form action="<?= route_to('perhitungan.store'); ?>" method="post">

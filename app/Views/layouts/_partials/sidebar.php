@@ -60,12 +60,12 @@
         <li class="menu-item <?= $title == 'Perhitungan' ? 'active' : null ?>">
             <a href="<?= route_to('perhitungan.index'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-calculator"></i>
-                <div data-i18n="Analytics">Perhitungan</div>
+                <div data-i18n="Analytics">Perhitungan / Seleksi</div>
             </a>
         </li>
         <!-- laporan -->
         <li class="menu-item <?= $title == 'laporan' ? 'active' : null ?>">
-            <a href="<?= route_to('penilaian.index'); ?>" class="menu-link">
+            <a href="<?= route_to('laporan.index'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-bookmark"></i>
                 <div data-i18n="Analytics">Laporan</div>
             </a>

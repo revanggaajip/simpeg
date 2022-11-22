@@ -40,7 +40,7 @@
                             <!-- Button Detail -->
                             <a href="<?= route_to('penilaian.detail', $pendaftar['id']); ?>"
                                 class="btn btn-primary btn-sm">
-                                <i class="bx bx-menu"></i> Detail
+                                <i class="bx bx-detail"></i> Detail
                             </a>
                         </td>
                     </tr>

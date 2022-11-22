@@ -86,7 +86,12 @@ $routes->group('perhitungan', function($routes) {
     $routes->get('reset', 'PerhitunganController::reset', ['as' => 'perhitungan.reset']);
     $routes->post('create', 'PerhitunganController::store', ['as' =>'perhitungan.store']);
     $routes->post('selection', 'PerhitunganController::selection', ['as' =>'perhitungan.selection']);
+});
 
+$routes->group('laporan', function($routes) {
+    $routes->get('/', 'LaporanController::index', ['as' => 'laporan.index']);
+    $routes->get('detail/(:any)', 'LaporanController::detail/$1', ['as' => 'laporan.detail']);
+    $routes->delete('delete/(:any)', 'LaporanController::delete/$1', ['as' => 'laporan.delete']);
 });
 
 /*

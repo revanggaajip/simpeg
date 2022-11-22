@@ -6,6 +6,8 @@ use App\Controllers\BaseController;
 use App\Models\Kriteria;
 use App\Models\Pendaftar;
 use App\Models\Penilaian;
+use App\Models\SeleksiDetail;
+use App\Models\SeleksiHeader;
 
 class PerhitunganController extends BaseController
 {
@@ -77,7 +79,6 @@ class PerhitunganController extends BaseController
         }
         rsort($selectionResult);
 
-
         $data['title'] = 'Perhitungan';
         $data['listPendaftar'] = $pendaftar->where('status', 'aktif')->findAll();
         $data['listKriteria'] = $kriteria->findAll();
@@ -87,7 +88,7 @@ class PerhitunganController extends BaseController
         $data['calculation'] = $calculation;
         $data['sumResult'] = $sumResult;
         $data['selectionResult'] = $selectionResult;
-        // dd($data);
+
         return view('perhitungan/index', $data);
     }
 
@@ -124,8 +125,27 @@ class PerhitunganController extends BaseController
 
     public function selection()
     {
+        $seleksiHeader = new SeleksiHeader();
+        $seleksiDetail = new SeleksiDetail();
+
+        $seleksiHeader->save([
+            'nama' => session('nama_program'),
+            'kuota' => session('jumlah_kuota')
+        ]);
+        $idSeleksiHeader = $seleksiHeader->insertID();
         $jumlahData = count($this->request->getVar('id'));
-        dd($jumlahData);
+        for ($i=0; $i < $jumlahData; $i++) { 
+            $seleksiDetail->insert([
+                'id_pendaftar' => $this->request->getVar('id')[$i],
+                'id_seleksi_header' => $idSeleksiHeader,
+                'nama' => $this->request->getVar('nama')[$i],
+                'nilai' => $this->request->getVar('nilai')[$i],
+                'penerima' => $this->request->getVar('penerima')[$i],
+            ]);
+        }
         $this->reset();
+
+        return redirect()->to(route_to('dashboard.index'))->with('success', 'Data seleksi berhasil disimpan');
+
     }
 }

@@ -7,7 +7,7 @@
 <?= $this->section('content'); ?>
 <div class="card">
     <div class="card-header mb-3">
-        <h4><?= $title; ?></h4>
+        <h4><?= $title; ?> / Seleksi</h4>
     </div>
     <div class="card-body">
         <section class="mb-3" id="tabelPenilaian">
@@ -155,13 +155,13 @@
                                 <td>V-<?= $keySum; ?></td>
                                 <td><?= $pendaftar['nama']; ?></td>
                                 <td><?= $sum; ?></td>
-                                <td><?= $keySelection + 1 <= 7 ? 'Ya' : 'Tidak'; ?></td>
+                                <td><?= $keySelection + 1 <= session('jumlah_kuota') ? 'Ya' : 'Tidak'; ?></td>
                             </tr>
                             <input type="hidden" name="id[]" value="<?= $keySum; ?>">
                             <input type="hidden" name="nama[]" value="<?= $pendaftar['nama']; ?>">
                             <input type="hidden" name="nilai[]" value="<?= $sum; ?>">
                             <input type="hidden" name="penerima[]"
-                                value="<?= $keySelection + 1 <= 7 ? 'Ya' : 'Tidak'; ?>">
+                                value="<?= $keySelection + 1 <= session('jumlah_kuota') ? 'Ya' : 'Tidak'; ?>">
                             <?php endif; ?>
                             <?php endforeach; ?>
                             <?php endif; ?>
