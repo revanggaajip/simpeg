@@ -89,11 +89,19 @@
                 <div data-i18n="Analytics">Pengguna</div>
             </a>
         </li>
-        <li class="menu-item <?= $title == 'Pengaturan' ? 'active' : null ?>">
-            <a href="<?= route_to('pengguna.index'); ?>" class="menu-link">
+        <!-- Pendaftar -->
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-cog"></i>
-                <div data-i18n="Analytics">Pengaturan</div>
+                <div data-i18n="Account Settings">Pengaturan</div>
             </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="pages-account-settings-account.html" class="menu-link">
+                        <div data-i18n="Account">Informasi Instansi</div>
+                    </a>
+                </li>
+            </ul>
         </li>
     </ul>
 </aside>
