@@ -43,15 +43,9 @@ $routes->get('logout', 'AuthController::logout', ['as' => 'logout.index']);
 $routes->get('edit-password', 'AuthController::editPassword', ['as' => 'password.edit']);
 $routes->post('edit-password', 'AuthController::updatePassword', ['as' => 'password.update']);
 
-$routes->group('kriteria', function($routes) {
-    $routes->get('/', 'KriteriaController::index', ['as' => 'kriteria.index']);
-    $routes->post('create', 'KriteriaController::store', ['as' =>'kriteria.store']);
-    $routes->put('edit/(:any)', 'KriteriaController::update/$1', ['as' => 'kriteria.update']);
-    $routes->delete('delete/(:any)', 'KriteriaController::delete/$1', ['as' => 'kriteria.delete']);
-    $routes->post('pilihan/store/(:any)', 'KriteriaController::pilihanStore/$1', ['as' => 'kriteria.pilihanStore']);
-    $routes->put('pilihan/update/(:any)', 'KriteriaController::pilihanUpdate/$1', ['as' => 'kriteria.pilihanUpdate']);
-    $routes->delete('pilihan/delete/(:any)', 'KriteriaController::pilihanDelete/$1', ['as' => 'kriteria.pilihanDelete']);
-    $routes->get('pilihan/(:any)', 'KriteriaController::pilihan/$1', ['as' => 'kriteria.pilihan']);
+$routes->group('instansi', function($routes) {
+    $routes->get('/', 'InstansiController::index', ['as' => 'instansi.index']);
+    $routes->post('edit', 'InstansiController::update', ['as' => 'instansi.update']);
 });
 
 $routes->group('pengguna', function($routes) {
