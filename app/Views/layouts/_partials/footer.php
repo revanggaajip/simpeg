@@ -6,7 +6,8 @@
             document.write(new Date().getFullYear());
             </script>
             <?= config('App')->name; ?> by
-            <a href="#" target="_blank" class="footer-link fw-bolder"><?= config('App')->author; ?></a>
+            <a href="#" target="_blank" class="footer-link fw-bolder"> <?= config('App')->nim; ?> -
+                <?= config('App')->author; ?></a>
         </div>
     </div>
 </footer>

@@ -33,6 +33,38 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label class="form-label">Periode</label>
+                    <div class="row">
+                        <div class="col-6">
+                            <select name="bulan" id="bulan" class="form-control" required>
+                                <option value="" selected disabled>Pilih Bulan</option>
+                                <option value="Januari">Januari</option>
+                                <option value="Februari">Februari</option>
+                                <option value="Maret">Maret</option>
+                                <option value="April">April</option>
+                                <option value="Mei">Mei</option>
+                                <option value="Juni">Juni</option>
+                                <option value="Juli">Juli</option>
+                                <option value="Agustus">Agustus</option>
+                                <option value="September">September</option>
+                                <option value="Oktober">Oktober</option>
+                                <option value="November">November</option>
+                                <option value="Desember">Desember</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <select name="tahun" id="tahun" class="form-control" required>
+                                <option value="" selected disabled>Pilih Tahun</option>
+                                <?php for ($i=date('Y'); $i >= 2020 ; $i--) { ?>
+                                <option value="<?= $i; ?>"><?= $i; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="d-flex justify-content-between mt-4">
                 <a href="<?= route_to('dashboard.index'); ?>" class="btn btn-danger">
                     <i class="bx bx-x-circle"></i> Batal

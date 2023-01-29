@@ -92,6 +92,7 @@ $routes->group('laporan', function($routes) {
     $routes->get('/', 'LaporanController::index', ['as' => 'laporan.index']);
     $routes->get('detail/(:any)', 'LaporanController::detail/$1', ['as' => 'laporan.detail']);
     $routes->delete('delete/(:any)', 'LaporanController::delete/$1', ['as' => 'laporan.delete']);
+    $routes->get('print/(:any)', 'LaporanController::print/$1', ['as' => 'laporan.print']);
 });
 
 /*

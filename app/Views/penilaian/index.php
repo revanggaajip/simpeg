@@ -6,7 +6,7 @@
 
 <?= $this->section('content'); ?>
 <div class="card">
-    <div class="card-header mb-3">
+    <div class="card-header mb-3 d-flex justify-content-between">
         <h4 class="my-auto">Data <?= $title; ?></h4>
     </div>
     <div class="card-body">

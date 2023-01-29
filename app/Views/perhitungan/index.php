@@ -171,8 +171,8 @@
                     </table>
                 </div>
                 <div class="d-flex justify-content-between mt-4">
-                    <a href="<?= route_to('perhitungan.reset'); ?>" class="btn btn-warning">
-                        <i class="bx bx-undo"></i> Reset
+                    <a href="<?= route_to('perhitungan.reset'); ?>" class="btn btn-danger">
+                        <i class="bx bx-x-circle"></i> Batal
                     </a>
                     <button type="submit" class="btn btn-success"><i class="bx bx-check-circle"></i> Simpan</button>
                 </div>

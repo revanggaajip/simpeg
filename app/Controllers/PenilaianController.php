@@ -118,4 +118,11 @@ class PenilaianController extends BaseController
             return redirect()->to(route_to('kriteria.detail', $penilaian['id_pendaftar']))->with('error', 'Data penilaian gagal dihapus');             
         }
     }
+
+    public function reset()
+    {
+        $this->penilaian->emptyTable('penilaian');
+        session()->setFlashdata('success', 'Data penilaian berhasil direset');
+        return redirect()->to(route_to('dashboard.index'));
+    }
 }

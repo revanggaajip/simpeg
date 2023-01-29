@@ -25,6 +25,7 @@ class App extends BaseConfig
      * @var string
      */
     public $name = 'Spk SAW';
+    public $nim = '';
     public $author = 'Mahasiswa';
     public $baseURL = 'http://localhost:8080/';
 

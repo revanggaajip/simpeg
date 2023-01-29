@@ -10,8 +10,8 @@ class CreatePendaftarTable extends Migration
     {
         $this->forge->addField([
             'id'            => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 10,
+                'type'              => 'BigInt',
+                'constraint'        => 20,
                 'unsigned'          => true,
                 'auto_increment'    => true
             ],

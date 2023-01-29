@@ -106,7 +106,7 @@ class PerhitunganController extends BaseController
     {
         $validation = \Config\Services::validation();
         $sessionData = [
-            'nama_program' => $this->request->getVar('nama'),
+            'nama_program' => $this->request->getVar('nama')." ".$this->request->getVar('bulan')." ".$this->request->getVar('tahun'),
             'jumlah_kuota' => $this->request->getVar('kuota')
         ];
         if($validation->run($sessionData, 'perhitungan')) {
@@ -144,6 +144,8 @@ class PerhitunganController extends BaseController
             ]);
         }
         $this->reset();
+        $penilaian = new PenilaianController();
+        $penilaian->reset();
 
         return redirect()->to(route_to('dashboard.index'))->with('success', 'Data seleksi berhasil disimpan');
 

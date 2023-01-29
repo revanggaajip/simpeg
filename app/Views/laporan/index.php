@@ -28,8 +28,7 @@
                         <td><?= $seleksi['kuota']; ?> Orang</td>
                         <td>
                             <!-- Button Detail -->
-                            <a href="<?= route_to('pendaftar.detail', $seleksi['id']); ?>"
-                                class="btn btn-primary btn-sm">
+                            <a href="<?= route_to('laporan.detail', $seleksi['id']); ?>" class="btn btn-primary btn-sm">
                                 <i class="bx bx-detail"></i> Detail
                             </a>
                             <!-- Button Delete -->
