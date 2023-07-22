@@ -8,9 +8,12 @@ use Config\Services;
 
 class PenggunaController extends BaseController
 {
+    public $title;
+    public $services;
+    public $pengguna;
     public function __construct()
     {
-        $this->title = 'Pengguna';
+        $this->title = 'Pegawai';
         $this->services = new Services();
         $this->pengguna = new Pengguna();
     }

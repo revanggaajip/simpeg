@@ -7,6 +7,7 @@ use App\Models\Pengguna;
 
 class AuthController extends BaseController
 {
+    public $pengguna;
     public function __construct()
     {
         $this->pengguna = new Pengguna();
@@ -19,10 +20,10 @@ class AuthController extends BaseController
     public function loginAction()
     {
         // Tangkap hasil inputan
-        $email = $this->request->getVar('email');
+        $nip = $this->request->getVar('nip');
         $password = $this->request->getVar('password');
-        // Cari data pengguna berdasarkan email yang diinput
-        $pengguna = $this->pengguna->where('email', $email)->first();
+        // Cari data pengguna berdasarkan nip yang diinput
+        $pengguna = $this->pengguna->where('nip', $nip)->first();
         // Jika data pengguna ditemukan
         if ($pengguna) {
             // jika password yang diinput sesuai
@@ -31,7 +32,6 @@ class AuthController extends BaseController
                 $sessionData = [
                     'id' => $pengguna['id'],
                     'nama' => $pengguna['nama'],
-                    'email' => $pengguna['email'],
                     'role' => $pengguna['role']
                 ];
                 session()->set($sessionData);
@@ -76,7 +76,7 @@ class AuthController extends BaseController
             // jika inputan password baru sesuai password lama
             } else {
                 // update password
-                $this->user->update(session('id'),[
+                $this->pengguna->update(session('id'),[
                     'password' => password_hash($passwordBaru, PASSWORD_DEFAULT)
                 ]);
                 // redirect + pesan sukses

@@ -2,7 +2,7 @@
     <div class="app-brand demo">
         <a href="<?= route_to('dashboard.index'); ?>" class="app-brand-link">
             <span class="app-brand-logo demo">
-                <i class="bx bx-plus-medical text-primary bx-md"></i>
+                <i class="bx bx-user text-primary bx-md"></i>
             </span>
             <span class="app-brand-text demo menu-text fw-bolder ms-2 text-uppercase"><?= config('App')->name; ?></span>
         </a>
@@ -23,85 +23,14 @@
             </a>
         </li>
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Obat</span>
+            <span class="menu-header-text">Master</span>
         </li>
-        <!-- Pengguna -->
+        <!-- Pengguna / Pegawai-->
         <li class="menu-item <?= $title == 'Master Obat' ? 'active' : null ?>">
             <a href="<?= route_to('pengguna.index'); ?>" class="menu-link">
-                <i class="menu-icon tf-icons bx bxs-capsule"></i>
-                <div data-i18n="Analytics">Master Obat</div>
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div data-i18n="Analytics">Pegawai</div>
             </a>
-        </li>
-        <!-- Pendaftar -->
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cart"></i>
-                <div data-i18n="Account Settings">Penjualan Obat</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="pages-account-settings-account.html" class="menu-link">
-                        <div data-i18n="Account">Input Penjualan</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="pages-account-settings-notifications.html" class="menu-link">
-                        <div data-i18n="Notifications">Data Penjualan</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <!-- Kategori -->
-        <li class="menu-item <?= $title == 'Stock Opname' ? 'active' : null ?>">
-            <a href="<?= route_to('kriteria.index'); ?>" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-receipt"></i>
-                <div data-i18n="Analytics">Penerimaan Obat</div>
-            </a>
-        </li>
-        <!-- Kategori -->
-        <li class="menu-item <?= $title == 'Stock Opname' ? 'active' : null ?>">
-            <a href="<?= route_to('kriteria.index'); ?>" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-package"></i>
-                <div data-i18n="Analytics">Stock Opname</div>
-            </a>
-        </li>
-        <!-- Penilaian -->
-        <li class="menu-item <?= $title == 'Penilaian' ? 'active' : null ?>">
-            <a href="<?= route_to('penilaian.index'); ?>" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-clipboard"></i>
-                <div data-i18n="Analytics">Riwayat Stock</div>
-            </a>
-        </li>
-        <!-- laporan -->
-        <li class="menu-item <?= $title == 'laporan' ? 'active' : null ?>">
-            <a href="<?= route_to('laporan.index'); ?>" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-calendar"></i>
-                <div data-i18n="Analytics">Laporan</div>
-            </a>
-        </li>
-        <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Penunjang</span>
-        </li>
-        <!-- Perhitungan -->
-        <li class="menu-item <?= $title == 'Pengguna' ? 'active' : null ?>">
-            <a href="<?= route_to('pengguna.index'); ?>" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-user-pin"></i>
-                <div data-i18n="Analytics">Pengguna</div>
-            </a>
-        </li>
-        <!-- Pendaftar -->
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cog"></i>
-                <div data-i18n="Account Settings">Pengaturan</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="<?= route_to('instansi.index'); ?>" class="menu-link">
-                        <div data-i18n="Account">Informasi Instansi</div>
-                    </a>
-                </li>
-            </ul>
         </li>
     </ul>
 </aside>

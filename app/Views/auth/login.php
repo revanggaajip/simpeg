@@ -59,21 +59,23 @@
                         <div class="app-brand justify-content-center">
                             <a href="index.html" class="app-brand-link gap-2">
                                 <span class="app-brand-logo demo">
-                                    <i class="bx bx-plus-medical bx-md"></i>
+                                    <i class="bx bx-user bx-md"></i>
                                 </span>
-                                <span class="app-brand-text demo text-body fw-bolder"><?= config('app')->name; ?></span>
+                                <span
+                                    class="app-brand-text demo text-body fw-bolder"><?= strtoupper(config('app')->name); ?>
+                                </span>
                             </a>
                         </div>
                         <!-- /Logo -->
                         <h4 class="mb-2">Login</h4>
-                        <p class="mb-4">Silahkan Masukkan Email dan Password Anda</p>
+                        <p class="mb-4">Silahkan Masukkan NIP dan Password Anda</p>
 
                         <form id="formLogin" class="mb-3" action="<?= route_to('login.action'); ?>" method="POST">
                             <?= csrf_field(); ?>
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email"
-                                    placeholder="Masukkan Email Anda" autofocus />
+                                <label for="nip" class="form-label">NIP</label>
+                                <input type="text" class="form-control" id="nip" name="nip"
+                                    placeholder="Masukkan NIP Anda" autofocus />
                             </div>
                             <div class="mb-3 form-password-toggle">
                                 <label class="form-label" for="password">Password</label>

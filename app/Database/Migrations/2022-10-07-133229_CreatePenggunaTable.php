@@ -15,13 +15,52 @@ class CreatePenggunaTable extends Migration
                 'unsigned'          => true,
                 'auto_increment'    => true
             ],
+            'nip'          => [
+                'type'          => 'VARCHAR',
+                'constraint'    => 20,
+                'unique'        => true
+            ],
             'nama'          => [
                 'type'          => 'VARCHAR',
                 'constraint'    => 100
             ],
-            'email'         => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 100
+            'jenis_kelamin'          => [
+                'type'          => 'enum',
+                'constraint'    => ['Laki-laki', 'Perempuan']
+            ],
+            'tempat_lahir'         => [
+                'type'              => 'varchar',
+                'constraint'        => '100'
+            ],
+            'tanggal_lahir'         => [
+                'type'              => 'date',
+            ],
+            'mulai_kerja'         => [
+                'type'              => 'date',
+            ],
+            'alamat'         => [
+                'type'              => 'text',
+            ],
+            'agama'         => [
+                'type'          => 'varchar',
+                'constraint'    => '20'
+            ],
+            'jabatan'         => [
+                'type'          => 'varchar',
+                'constraint'    => '100'
+            ],
+            'gaji' => [
+                'type'          => 'double'
+            ],
+            'npwp'         => [
+                'type'          => 'varchar',
+                'constraint'    => '100',
+                'nullable'      => true
+            ],
+            'status' => [
+                'type'          => 'enum',
+                'constraint'    => ['Aktif', 'Tidak Aktif'],
+                'default'       => 'Aktif'
             ],
             'password'      => [
                 'type'              => 'VARCHAR',
@@ -30,7 +69,6 @@ class CreatePenggunaTable extends Migration
             'role'          => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 100,
-                'default'           => 'admin'
             ],
             'created_at'    => [
                 'type'          => 'DATETIME',

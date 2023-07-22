@@ -22,9 +22,12 @@
                 <thead class="text-center mt-2">
                     <tr>
                         <th>No</th>
+                        <th>Nip</th>
                         <th>Nama</th>
-                        <th>Email</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Jabatan</th>
                         <th>Role</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -32,9 +35,18 @@
                     <?php foreach($listPengguna as $key => $pengguna) :?>
                     <tr>
                         <td><?= $key + 1; ?></td>
+                        <td><?= $pengguna['nip']; ?></td>
                         <td><?= $pengguna['nama']; ?></td>
-                        <td><?= $pengguna['email']; ?></td>
+                        <td><?= $pengguna['jenis_kelamin']; ?></td>
+                        <td><?= $pengguna['jabatan']; ?></td>
                         <td><?= $pengguna['role']; ?></td>
+                        <td>
+                            <?php if ($pengguna['status'] == 'Aktif') { ?>
+                            <span class="badge bg-success">Aktif</span>
+                            <?php } else { ?>
+                            <span class="badge bg-danger">Tidak Aktif</span>
+                            <?php } ?>
+                        </td>
                         <td>
                             <!-- Button Edit -->
                             <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
@@ -67,14 +79,6 @@
                                                         class="form-control" placeholder="Masukkan Nama Pengguna"
                                                         value="<?= $pengguna['nama']; ?>"
                                                         onkeyup="uppercaseFormatEdit()">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col mb-3">
-                                                    <label for="email" class="form-label">Email Pengguna</label>
-                                                    <input type="email" name="email" id="email_pengguna"
-                                                        class="form-control" placeholder="Masukkan Email Pengguna"
-                                                        value="<?= $pengguna['email']; ?>">
                                                 </div>
                                             </div>
                                         </div>
