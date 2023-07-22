@@ -11,6 +11,7 @@ class PenggunaController extends BaseController
     public $title;
     public $services;
     public $pengguna;
+    
     public function __construct()
     {
         $this->title = 'Pegawai';

@@ -20,6 +20,11 @@ class CreatePenggunaTable extends Migration
                 'constraint'    => 20,
                 'unique'        => true
             ],
+            'nik'          => [
+                'type'          => 'VARCHAR',
+                'constraint'    => 16,
+                'unique'        => true
+            ],
             'nama'          => [
                 'type'          => 'VARCHAR',
                 'constraint'    => 100

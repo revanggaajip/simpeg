@@ -22,38 +22,31 @@
                 </div>
                 <div class="row">
                     <div class="col mb-3">
-                        <label class="form-label">Jenis Kelamin</label>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-check mt-1">
-                                    <input name="jenis_kelamin" class="form-check-input" type="radio" value="Laki-laki"
-                                        id="Laki-laki">
-                                    <label class="form-check-label" for="Laki-laki">
-                                        Laki-laki
-                                    </label>
+                        <label for="nik" class="form-label">NIK</label>
+                        <input type="text" name="nik" id="nik" class="form-control" placeholder="Masukkan NIK">
+                        <div class="col mb-3">
+                            <label class="form-label">Jenis Kelamin</label>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-check mt-1">
+                                        <input name="jenis_kelamin" class="form-check-input" type="radio" value="Laki-laki"
+                                            id="Laki-laki">
+                                        <label class="form-check-label" for="Laki-laki">
+                                            Laki-laki
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-check mt-1">
-                                    <input name="jenis_kelamin" class="form-check-input" type="radio" value="Perempuan"
-                                        id="Perempuan">
-                                    <label class="form-check-label" for="Perempuan">
-                                        Perempuan
-                                    </label>
+                                <div class="col">
+                                    <div class="form-check mt-1">
+                                        <input name="jenis_kelamin" class="form-check-input" type="radio" value="Perempuan"
+                                            id="Perempuan">
+                                        <label class="form-check-label" for="Perempuan">
+                                            Perempuan
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col mb-3">
-                        <label for="nama" class="form-label">Agama</label>
-                        <select id="defaultSelect" class="form-select">
-                            <option value="islam">Islam</option>
-                            <option value="kristen">Kristen</option>
-                            <option value="katolik">Katolik</option>
-                            <option value="hindu">hindu</option>
-                            <option value="buddha">buddha</option>
-                            <option value="konguchu">konguchu</option>
-                        </select>
                     </div>
                 </div>
                 <div class="row">
@@ -66,6 +59,24 @@
                         <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
                         <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control"
                             placeholder="Masukkan Tanggal Lahir">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="nama" class="form-label">Agama</label>
+                        <select id="defaultSelect" class="form-select">
+                            <option value="islam">Islam</option>
+                            <option value="kristen">Kristen</option>
+                            <option value="katolik">Katolik</option>
+                            <option value="hindu">hindu</option>
+                            <option value="buddha">buddha</option>
+                            <option value="konguchu">konguchu</option>
+                        </select>
+                    </div>
+                    <div class="col mb-3">
+                        <label for="npwp" class="form-label">NPWP</label>
+                        <input type="date" name="npwp" id="npwp" class="form-control"
+                            placeholder="Masukkan NPWP">
                     </div>
                 </div>
                 <div class="row">
@@ -85,13 +96,13 @@
                         <label for="gaji" class="form-label">Gaji</label>
                         <input type="text" name="gaji" id="gaji" class="form-control" placeholder="Masukkan Gaji">
                     </div>
+                </div>
+                <div class="row">
                     <div class="col mb-3">
                         <label for="mulai_kerja" class="form-label">Password</label>
                         <input type="password" name="password" id="password" class="form-control"
                             placeholder="Masukkan Password">
                     </div>
-                </div>
-                <div class="row">
                     <div class="col mb-3">
                         <label for="konfirmasi_password" class="form-label">Konfirmasi Password </label>
                         <input type="password" name="konfirmasi_password" id="konfirmasi_password_" class="form-control"

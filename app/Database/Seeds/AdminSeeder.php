@@ -12,6 +12,7 @@ class AdminSeeder extends Seeder
         $pengguna = new Pengguna();
         $pengguna->save([
             'nip' => '123',
+            'nik' => '3325',
             'nama' => 'admin',
             'jenis_kelamin'=> 'Laki-laki',
             'tempat_lahir' => 'pluto',
