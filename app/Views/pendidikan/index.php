@@ -22,8 +22,8 @@
                 <thead class="text-center mt-2">
                     <tr>
                         <th>No</th>
-                        <th>Nama</th>
-                        <th>Tanggal Lahir</th>
+                        <th>Nama Sekolah</th>
+                        <th>Tanggal </th>
                         <th>Hubungan</th>
                         <th>Aksi</th>
                     </tr>

@@ -12,8 +12,8 @@ class CreateRiwayatPendidikanTable extends Migration
             'id' => ['type'=> 'BIGINT','constraint'=> 20, 'unsigned'=> true, 'auto_increment'=> true],  
             'pengguna_id' => ['type'=> 'BIGINT','constraint'=> 20, 'unsigned'=> true],
             'nama' => ['type' => 'varchar', 'constraint' => 100],
-            'awal' => ['type'=> 'date'],
-            'akhir' => ['type' => 'date'],
+            'masuk' => ['type'=> 'varchar', 'constraint' => 20],
+            'lulus' => ['type' => 'varchar', 'constraint' => 20],
             'tingkatan' => ['type' => 'varchar', 'constraint' => 25]
         ]);
         $this->forge->addKey('id', true);

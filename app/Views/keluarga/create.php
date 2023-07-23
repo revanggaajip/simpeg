@@ -2,7 +2,7 @@
 <div class="modal fade" id="createModal" data-bs-backdrop="static" tabindex="-1" style="display: none;"
     aria-hidden="true">
     <div class="modal-dialog">
-        <form class="modal-content" action="/jabatan/create" method="POST">
+        <form class="modal-content" action="/keluarga/create" method="POST">
             <?= csrf_field(); ?>
             <input type="hidden" name="pengguna_id" value="<?= session('id'); ?>">
             <div class="modal-header">
@@ -14,24 +14,24 @@
                 <div class="col mb-3">
                     <label for="nama" class="form-label">Nama Anggota Keluarga</label>
                     <input type="text" name="nama" id="nama" class="form-control"
-                        placeholder="Masukkan Nama Keluarga" value="<?= $keluarga['nama'] ?>"> 
+                        placeholder="Masukkan Nama Keluarga"> 
                 </div>
                 </div>
                 <div class="row">
                     <div class="col mb-3">
                         <label for="awal" class="form-label">Tanggal Lahir</label>
                         <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control"
-                            placeholder="Masukkan Tanggal Lahir Keluarga" value="<?=$keluarga['tanggal_lahir']?>">
+                            placeholder="Masukkan Tanggal Lahir Keluarga">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col mb-3">
                         <label for="hubungan" class="form-label">Hubungan</label>
                         <select name="hubungan" id="hubungan" class="form-control">
-                            <option value="Orang Tua" <?= $keluarga['hubungan'] == 'Orang Tua' ? 'selected' : null ?>>Orang Tua</option>
-                            <option value="Suami" <?= $keluarga['hubungan'] == 'Suami' ? 'selected' : null ?>>Suami</option>
-                            <option value="Istri" <?= $keluarga['hubungan'] == 'Istri' ? 'selected' : null ?>>Istri</option>
-                            <option value="Anak" <?= $keluarga['hubungan'] == 'Anak' ? 'selected' : null ?>>Anak</option>
+                            <option value="Orang Tua">Orang Tua</option>
+                            <option value="Suami">Suami</option>
+                            <option value="Istri">Istri</option>
+                            <option value="Anak">Anak</option>
                         </select>
                         
                     </div>

@@ -66,4 +66,10 @@ class Validation extends BaseConfig
         'awal' => 'required',
         'akhir' => 'required'
     ];
+
+    public $keluarga = [
+        'nama' => 'required',
+        'tanggal_lahir' => 'required',
+        'hubungan' => 'required'
+    ];
 }
