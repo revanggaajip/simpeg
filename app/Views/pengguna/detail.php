@@ -108,11 +108,11 @@
 <?= $this->endSection(); ?>
 
 <?= $this->section('styles'); ?>
-<link rel="stylesheet" href="<?= base_url('vendor/libs/datatables/jquery.dataTables.min.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('library/libs/datatables/jquery.dataTables.min.css'); ?>">
 <?= $this->endSection(); ?>
 
 <?= $this->section('scripts'); ?>
-<script src="<?= base_url('vendor/libs/datatables/jquery.dataTables.min.js'); ?>"></script>
+<script src="<?= base_url('library/libs/datatables/jquery.dataTables.min.js'); ?>"></script>
 <script>
 $(document).ready(function() {
     $('#dataTables').DataTable();

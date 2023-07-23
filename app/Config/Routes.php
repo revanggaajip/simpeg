@@ -52,8 +52,9 @@ $routes->group('pengguna', function($routes) {
 });
 
 $routes->group('cuti', function($routes) {
-    $routes->get('/', 'CutiController::index', ['cuti.index']);
-    $routes->get('(:any)', 'CutiController::detail/$1', ['cuti.detail']);
+    $routes->get('/', 'CutiController::index', ['as' => 'cuti.index']);
+    $routes->get('(:any)', 'CutiController::detail/$1', ['as' => 'cuti.detail']);
+    $routes->post('create', 'CutiController::store', ['as' =>'cuti.store']);
 });
 
 /*

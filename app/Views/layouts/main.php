@@ -21,23 +21,23 @@
         rel="stylesheet" />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="<?= base_url() ?>/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>/library/fonts/boxicons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="<?= base_url() ?>/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="<?= base_url() ?>/vendor/css/theme-default.css"
+    <link rel="stylesheet" href="<?= base_url() ?>/library/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="<?= base_url() ?>/library/css/theme-default.css"
         class="template-customizer-theme-css" />
     <link rel="stylesheet" href="<?= base_url() ?>/css/demo.css" />
 
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="<?= base_url() ?>/vendor/libs/sweetalert2/sweetalert2.min.css" />
-    <link rel="stylesheet" href="<?= base_url() ?>/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <!-- librarys CSS -->
+    <link rel="stylesheet" href="<?= base_url() ?>/library/libs/sweetalert2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>/library/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- Page CSS -->
     <?= $this->renderSection('styles'); ?>
 
     <!-- Helpers -->
-    <script src="<?= base_url() ?>/vendor/js/helpers.js"></script>
+    <script src="<?= base_url() ?>/library/js/helpers.js"></script>
     <script src="<?= base_url() ?>/js/config.js"></script>
 </head>
 
@@ -91,13 +91,13 @@
     <!-- / Layout wrapper -->
 
     <!-- Core JS -->
-    <!-- build:js vendor/js/core.js -->
-    <script src="<?= base_url() ?>/vendor/libs/jquery/jquery.js"></script>
-    <script src="<?= base_url() ?>/vendor/libs/popper/popper.js"></script>
-    <script src="<?= base_url() ?>/vendor/js/bootstrap.js"></script>
-    <script src="<?= base_url() ?>/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="<?= base_url() ?>/vendor/libs/sweetalert2/sweetalert2.all.min.js"></script>
-    <script src="<?= base_url() ?>/vendor/js/menu.js"></script>
+    <!-- build:js library/js/core.js -->
+    <script src="<?= base_url() ?>/library/libs/jquery/jquery.js"></script>
+    <script src="<?= base_url() ?>/library/libs/popper/popper.js"></script>
+    <script src="<?= base_url() ?>/library/js/bootstrap.js"></script>
+    <script src="<?= base_url() ?>/library/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="<?= base_url() ?>/library/libs/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="<?= base_url() ?>/library/js/menu.js"></script>
     <!-- endbuild -->
 
     <!-- Main JS -->

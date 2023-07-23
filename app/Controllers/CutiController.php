@@ -18,9 +18,39 @@ class CutiController extends BaseController
     }
     public function index()
     {
-        //
+        $data['listCuti'] = $this->cuti->findAll();
+        $data['title'] = 'Cuti';
+        return view('cuti/index', $data);
     }
+    public function store() {
+        // panggil helper validasi input data
+        $validation = $this->services::validation();
 
+        // Ambil data dari inputan
+        $cuti = [
+            'mulai' => $this->request->getVar('mulai'),
+            'akhir' => $this->request->getVar('akhir'),
+            'alasan' => $this->request->getVar('alasan'),
+            'pengguna_id' => $this->request->getVar('pengguna_id'),
+            'status' => 'proses'
+        ];
+        // Lakukan validasi
+        if($validation->run($cuti, 'cuti')) {
+            //jika validasi sukses
+            // Simpan Data
+            $this->cuti->save($cuti);
+            // Redirect + pesan sukses
+            return redirect()->to(route_to('cuti.detail', $cuti['pengguna_id']))->with('success', 'Data peengajuan cuti berhasil disimpan');
+        } 
+        // jika validasi gagal
+        else {
+            // Meneruskan data error dari validasi ke view
+            session()->setFlashdata('errors', $validation->getErrors());
+            // Redirect + pesan gagal
+            return redirect()->to(route_to('cuti.detail', $cuti['pengguna_id']))->with('error', 'Data pengajuan cuti gagal disimpan');             
+        }
+    }
+        
     public function detail($id)
     {
         $data['listCuti'] = $this->cuti->where('pengguna_id', $id)->findAll();
@@ -35,20 +65,11 @@ class CutiController extends BaseController
         // Ambil data dari inputan
         $cuti = [
             'id' => $id,
-            'nama' => $this->request->getVar('nama'),
-            'nip'=> $this->request->getVar('nip'),
-            'nik'=> $this->request->getVar('nik'),
-            'jenis_kelamin'=> $this->request->getVar('jenis_kelamin'),
-            'tempat_lahir'=> $this->request->getVar('tempat_lahir'),
-            'tanggal_lahir'=> $this->request->getVar('tanggal_lahir'),
-            'agama'=> $this->request->getVar('agama'),
-            'alamat'=> $this->request->getVar('alamat'),
-            'jabatan'=> $this->request->getVar('jabatan'),
-            'mulai_kerja'=> $this->request->getVar('mulai_kerja'),
-            'gaji'=> $this->request->getVar('gaji'),
-            'npwp'=> $this->request->getVar('npwp'),
-            'role'=> $this->request->getVar('role'),
-            'password' => $this->request->getVar('password')
+            'mulai' => $this->request->getVar('mulai'),
+            'akhir' => $this->request->getVar('akhir'),
+            'alasan' => $this->request->getVar('alasan'),
+            'pengguna_id' => $this->request->getVar('pengguna_id'),
+            'status' => $this->request->getVar('status')
         ];
         // Lakukan validasi
         if($validation->run($cuti, 'cuti')) {
@@ -56,14 +77,14 @@ class CutiController extends BaseController
             // Simpan Data
             $this->cuti->save($cuti, ['id' => $id]);
             // Redirect + pesan sukses
-            return redirect()->to(route_to('pengguna.index'))->with('success', 'Data pengguna berhasil diupdate');
+            return redirect()->to(route_to('cuti.detail', $cuti['pengguna_id']))->with('success', 'Data pengguna berhasil diupdate');
         } 
         // jika validasi gagal
         else {
             // Meneruskan data error dari validasi ke view
             session()->setFlashdata('errors', $validation->getErrors());
             // Redirect + pesan gagal
-            return redirect()->to(route_to('pengguna.index'))->with('error', 'Data pengguna gagal diupdate');             
+            return redirect()->to(route_to('cuti.detail', $cuti['pengguna_id']))->with('error', 'Data pengguna gagal diupdate');             
         }
     }
     

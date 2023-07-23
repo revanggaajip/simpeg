@@ -41,19 +41,6 @@ class Validation extends BaseConfig
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
-    public $kriteria = [
-        'id' => 'required',
-        'nama' => 'required|is_unique[kriteria.nama,id,{id}]',
-        'bobot' => 'required',
-        'status' => 'required'
-    ];
-
-    public $pendaftar = [
-        'nik' => 'required|is_unique[pendaftar.nik,id,{id}]|numeric',
-        'nama' => 'required',
-        'alamat' => 'required',
-        'status' => 'required'
-    ];
 
     public $pengguna = [
         'nama' => 'required',
@@ -68,18 +55,9 @@ class Validation extends BaseConfig
         'password' => 'required',
     ];
 
-    public $penilaian = [
-        'id_kriteria' => 'required',
-        'nilai_kriteria' => 'required',
-    ];
-
-    public $pilihan = [
-        'nama' => 'required',
-        'bobot' => 'required',
-        'id_kriteria' => 'required'
-    ];
-    public $perhitungan = [
-        'nama_program' => 'required',
-        'jumlah_kuota' => 'required',
+    public $cuti = [
+        'mulai' => 'required',
+        'akhir' => 'required',
+        'alasan' => 'required'
     ];
 }
