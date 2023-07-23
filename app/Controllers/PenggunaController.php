@@ -71,7 +71,7 @@ class PenggunaController extends BaseController
 
     public function detail($id) {
         $pengguna = $this->pengguna->find($id);
-        $data['title'] = 'Profil' . $pengguna['nama'];
+        $data['title'] = 'Profil ' . $pengguna['nama'];
         $data['pengguna'] = $pengguna;
         return view('pengguna/detail', $data);
     }

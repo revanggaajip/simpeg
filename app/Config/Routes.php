@@ -55,6 +55,24 @@ $routes->group('cuti', function($routes) {
     $routes->get('/', 'CutiController::index', ['as' => 'cuti.index']);
     $routes->get('(:any)', 'CutiController::detail/$1', ['as' => 'cuti.detail']);
     $routes->post('create', 'CutiController::store', ['as' =>'cuti.store']);
+    $routes->post('setujui/(:any)', 'CutiController::setujui/$1', ['as' =>'cuti.setujui']);
+    $routes->post('tolak/(:any)', 'CutiController::tolak/$1', ['as' =>'cuti.tolak']);
+    $routes->put('edit/(:any)', 'CutiController::update/$1', ['as' => 'cuti.update']);
+    $routes->delete('delete/(:any)', 'CutiController::delete/$1', ['as' => 'cuti.delete']);
+});
+
+$routes->group('jabatan', function($routes) {
+    $routes->get('(:any)', 'RiwayatJabatanController::index/$1', ['as' => 'jabatan.index']);
+    $routes->post('create', 'RiwayatJabatanController::store', ['as' =>'jabatan.store']);
+    $routes->put('edit/(:any)', 'RiwayatJabatanController::update/$1', ['as' => 'jabatan.update']);
+    $routes->delete('delete/(:any)', 'RiwayatJabatanController::delete/$1', ['as' => 'jabatan.delete']);
+});
+
+$routes->group('keluarga', function($routes) {
+    $routes->get('(:any)', 'KeluargaController::index/$1', ['as' => 'keluarga.index']);
+    $routes->post('create', 'KeluargaController::store', ['as' =>'keluarga.store']);
+    $routes->put('edit/(:any)', 'KeluargaController::update/$1', ['as' => 'keluarga.update']);
+    $routes->delete('delete/(:any)', 'KeluargaController::delete/$1', ['as' => 'keluarga.delete']);
 });
 
 /*

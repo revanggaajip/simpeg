@@ -55,5 +55,17 @@
                 <div data-i18n="Analytics">Pengajuan Cuti</div>
             </a>
         </li>
+        <li class="menu-item <?= $title == 'Riwayat Jabatan' ? 'active' : null ?>">
+            <a href="/jabatan/<?= session('id'); ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-bookmark"></i>
+                <div data-i18n="Analytics">Riwayat Jabatan</div>
+            </a>
+        </li>
+        <li class="menu-item <?= $title == 'Anggota Keluarga' ? 'active' : null ?>">
+            <a href="/keluarga/<?= session('id'); ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user-circle"></i>
+                <div data-i18n="Analytics">Anggota Keluarga</div>
+            </a>
+        </li>
     </ul>
 </aside>

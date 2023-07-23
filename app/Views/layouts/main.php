@@ -93,6 +93,7 @@
     <!-- Core JS -->
     <!-- build:js library/js/core.js -->
     <script src="<?= base_url() ?>/library/libs/jquery/jquery.js"></script>
+    <script src="<?= base_url() ?>/library/libs/jqueryui/jquery-ui.js"></script>
     <script src="<?= base_url() ?>/library/libs/popper/popper.js"></script>
     <script src="<?= base_url() ?>/library/js/bootstrap.js"></script>
     <script src="<?= base_url() ?>/library/libs/perfect-scrollbar/perfect-scrollbar.js"></script>

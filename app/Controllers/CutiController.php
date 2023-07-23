@@ -18,7 +18,10 @@ class CutiController extends BaseController
     }
     public function index()
     {
-        $data['listCuti'] = $this->cuti->findAll();
+        $data['listCuti'] = $this->cuti->join('pengguna', 'pengguna.id = cuti.pengguna_id')
+        ->select('cuti.id, cuti.mulai, cuti.akhir, cuti.alasan, cuti.status, pengguna.nama')
+        ->orderBy('id', 'DESC')
+        ->findAll();
         $data['title'] = 'Cuti';
         return view('cuti/index', $data);
     }
@@ -53,7 +56,7 @@ class CutiController extends BaseController
         
     public function detail($id)
     {
-        $data['listCuti'] = $this->cuti->where('pengguna_id', $id)->findAll();
+        $data['listCuti'] = $this->cuti->where('pengguna_id', $id)->orderBy('id', 'DESC')->findAll();
         $data['title'] = 'Pengajuan Cuti';
         return view('cuti/detail', $data);
     }
@@ -69,7 +72,7 @@ class CutiController extends BaseController
             'akhir' => $this->request->getVar('akhir'),
             'alasan' => $this->request->getVar('alasan'),
             'pengguna_id' => $this->request->getVar('pengguna_id'),
-            'status' => $this->request->getVar('status')
+            'status' => 'proses'
         ];
         // Lakukan validasi
         if($validation->run($cuti, 'cuti')) {
@@ -77,7 +80,7 @@ class CutiController extends BaseController
             // Simpan Data
             $this->cuti->save($cuti, ['id' => $id]);
             // Redirect + pesan sukses
-            return redirect()->to(route_to('cuti.detail', $cuti['pengguna_id']))->with('success', 'Data pengguna berhasil diupdate');
+            return redirect()->to(route_to('cuti.detail', $cuti['pengguna_id']))->with('success', 'Data cuti berhasil diupdate');
         } 
         // jika validasi gagal
         else {
@@ -94,11 +97,33 @@ class CutiController extends BaseController
         // Jika berhasil terhapus
         if($deleted) {
             // Redirect + pesan sukses
-            return redirect()->to(route_to('pengguna.index'))->with('success', 'Data pengguna berhasil dihapus');
+            return redirect()->to(route_to('cuti.detail', session('id')))->with('success', 'Data cuti berhasil dihapus');
         // Jika gagal
         } else {
             // Redirect + pesan gagal
-            return redirect()->to(route_to('pengguna.index'))->with('error', 'Data pengguna gagal dihapus');             
+            return redirect()->to(route_to('cuti.detail', session('id')))->with('error', 'Data cuti gagal dihapus');             
         }
+    }
+
+    public function setujui($id)
+    {
+        // update menjadi disetujui
+        $this->cuti->save([
+            'id' => $id,
+            'status' => 'disetujui'
+        ], ['id' => $id]);
+            // Redirect + pesan sukses
+            return redirect()->to(route_to('cuti.index'))->with('success', 'Data pengajuan cuti berhasil disetujui');
+    }
+
+    public function tolak($id)
+    {
+        // update menjadi ditolak
+        $this->cuti->save([
+            'id' => $id,
+            'status' => 'ditolak'
+        ], ['id' => $id]);
+            // Redirect + pesan sukses
+            return redirect()->to(route_to('cuti.index'))->with('success', 'Data pengajuan cuti berhasil ditolak');
     }
 }
