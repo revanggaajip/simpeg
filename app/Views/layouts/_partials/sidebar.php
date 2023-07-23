@@ -22,14 +22,25 @@
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
+        <?php if (session('role') == 'admin') { ?>
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Master</span>
+            <span class="menu-header-text">Admin</span>
         </li>
         <!-- Pengguna / Pegawai-->
-        <li class="menu-item <?= $title == 'Master Obat' ? 'active' : null ?>">
+        <li class="menu-item <?= $title == 'Pegawai' ? 'active' : null ?>">
             <a href="<?= route_to('pengguna.index'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>
                 <div data-i18n="Analytics">Pegawai</div>
+            </a>
+        </li>
+        <?php } ?>
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Menu</span>
+        </li>
+        <li class="menu-item <?= $title == 'Profil' . session('nama') ? 'active' : null ?>">
+            <a href="<?= route_to('pengguna.detail', session('id')); ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div data-i18n="Analytics">Profil</div>
             </a>
         </li>
     </ul>

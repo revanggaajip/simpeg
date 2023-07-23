@@ -38,7 +38,18 @@ class PenggunaController extends BaseController
         // Ambil data dari inputan
         $pengguna = [
             'nama' => $this->request->getVar('nama'),
-            'email'=> $this->request->getVar('email'),
+            'nip'=> $this->request->getVar('nip'),
+            'nik'=> $this->request->getVar('nik'),
+            'jenis_kelamin'=> $this->request->getVar('jenis_kelamin'),
+            'tempat_lahir'=> $this->request->getVar('tempat_lahir'),
+            'tanggal_lahir'=> $this->request->getVar('tanggal_lahir'),
+            'agama'=> $this->request->getVar('agama'),
+            'alamat'=> $this->request->getVar('alamat'),
+            'jabatan'=> $this->request->getVar('jabatan'),
+            'mulai_kerja'=> $this->request->getVar('mulai_kerja'),
+            'gaji'=> $this->request->getVar('gaji'),
+            'npwp'=> $this->request->getVar('npwp'),
+            'role'=> $this->request->getVar('role'),
             'password' => $password
         ];
         // Lakukan validasi
@@ -47,7 +58,7 @@ class PenggunaController extends BaseController
             // Simpan Data
             $this->pengguna->save($pengguna);
             // Redirect + pesan sukses
-            return redirect()->to(route_to('pengguna.index'))->with('success', 'Data pengguna berhasil disimpan');
+            return redirect()->to(route_to('pengguna.index'))->with('success', 'Data pegawai berhasil disimpan');
         } 
         // jika validasi gagal
         else {
@@ -58,6 +69,13 @@ class PenggunaController extends BaseController
         }
     }
 
+    public function detail($id) {
+        $pengguna = $this->pengguna->find($id);
+        $data['title'] = 'Profil' . $pengguna['nama'];
+        $data['pengguna'] = $pengguna;
+        return view('pengguna/detail', $data);
+    }
+
     public function update($id) {
         // panggil helper validasi input data
         $validation = $this->services::validation();
@@ -66,9 +84,19 @@ class PenggunaController extends BaseController
         $pengguna = [
             'id' => $id,
             'nama' => $this->request->getVar('nama'),
-            'email'=> $this->request->getVar('email'),
-            'password' => $this->request->getVar('password'),
-            // 'role' => $this->request->getVar('role'),
+            'nip'=> $this->request->getVar('nip'),
+            'nik'=> $this->request->getVar('nik'),
+            'jenis_kelamin'=> $this->request->getVar('jenis_kelamin'),
+            'tempat_lahir'=> $this->request->getVar('tempat_lahir'),
+            'tanggal_lahir'=> $this->request->getVar('tanggal_lahir'),
+            'agama'=> $this->request->getVar('agama'),
+            'alamat'=> $this->request->getVar('alamat'),
+            'jabatan'=> $this->request->getVar('jabatan'),
+            'mulai_kerja'=> $this->request->getVar('mulai_kerja'),
+            'gaji'=> $this->request->getVar('gaji'),
+            'npwp'=> $this->request->getVar('npwp'),
+            'role'=> $this->request->getVar('role'),
+            'password' => $this->request->getVar('password')
         ];
         // Lakukan validasi
         if($validation->run($pengguna, 'pengguna')) {

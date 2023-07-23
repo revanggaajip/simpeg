@@ -48,86 +48,10 @@
                             <?php } ?>
                         </td>
                         <td>
-                            <!-- Button Edit -->
-                            <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#editModal-<?= $pengguna['id']; ?>">
-                                <i class="bx bx-edit"></i> Edit
+                            <button class="btn btn-info btn-sm" type="button"
+                                onclick="onClickDetail(<?=$pengguna['id']?>)">
+                                <i class="bx bx-info-circle"></i> Detail
                             </button>
-
-                            <!-- Modal Edit -->
-                            <div class="modal fade" id="editModal-<?= $pengguna['id']; ?>" data-bs-backdrop="static"
-                                tabindex="-1" style="display: none;" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <form class="modal-content"
-                                        action="<?= route_to('pengguna.update', $pengguna['id']); ?>" method="POST">
-                                        <?= csrf_field(); ?>
-                                        <input type="hidden" name="_method" value="PUT">
-                                        <input type="hidden" name="password" value="<?= $pengguna['password']; ?>">
-                                        <input type="hidden" name="role" value="<?= $pengguna['role']; ?>">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="backDropModalTitle">Edit Pengguna</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="row">
-                                                <div class="col mb-3">
-                                                    <label for="edit_nama_pengguna" class="form-label">
-                                                        Nama Pengguna
-                                                    </label>
-                                                    <input type="text" name="nama" id="edit_nama_pengguna"
-                                                        class="form-control" placeholder="Masukkan Nama Pengguna"
-                                                        value="<?= $pengguna['nama']; ?>"
-                                                        onkeyup="uppercaseFormatEdit()">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer d-flex justify-content-between">
-                                            <button type="button" class="btn btn-outline-danger"
-                                                data-bs-dismiss="modal">
-                                                <i class="bx bx-x-circle"></i> Batal
-                                            </button>
-                                            <button type="submit" class="btn btn-success"><i
-                                                    class="bx bx-check-circle"></i> Simpan</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-
-                            <!-- Button Delete -->
-                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#deleteModal-<?= $pengguna['id']; ?>">
-                                <i class="bx bx-trash"></i> Hapus
-                            </button>
-
-                            <!-- Modal Delete-->
-                            <div class="modal fade" id="deleteModal-<?= $pengguna['id']; ?>" data-bs-backdrop="static"
-                                tabindex="-1" style="display: none;" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <form class="modal-content"
-                                        action="<?= route_to('pengguna.delete', $pengguna['id']); ?>" method="POST">
-                                        <?= csrf_field(); ?>
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="backDropModalTitle">Hapus Pengguna</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Apakah anda yakin untuk menghapus Pengguna
-                                                <?= $pengguna['nama']; ?></p>
-                                        </div>
-                                        <div class="modal-footer d-flex justify-content-between">
-                                            <button type="button" class="btn btn-outline-danger"
-                                                data-bs-dismiss="modal">
-                                                <i class="bx bx-x-circle"></i> Batal
-                                            </button>
-                                            <button type="submit" class="btn btn-success"><i class="bx bx-trash"></i>
-                                                Hapus</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -151,6 +75,10 @@ $(document).ready(function() {
 const uppercaseFormatEdit = () => {
     let value = $('#edit_nama_pengguna').val().toUpperCase();
     $('#edit_nama_pengguna').val(value);
+}
+
+let onClickDetail = (id) => {
+    document.location.href = `/pengguna/detail/${id}`
 }
 </script>
 <?= $this->endSection(); ?>

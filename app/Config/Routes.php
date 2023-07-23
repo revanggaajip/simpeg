@@ -51,6 +51,7 @@ $routes->group('instansi', function($routes) {
 $routes->group('pengguna', function($routes) {
     $routes->get('/', 'PenggunaController::index', ['as' => 'pengguna.index']);
     $routes->post('create', 'PenggunaController::store', ['as' =>'pengguna.store']);
+    $routes->get('detail/(:any)', 'PenggunaController::detail/$1', ['as' => 'pengguna.detail']);
     $routes->put('edit/(:any)', 'PenggunaController::update/$1', ['as' => 'pengguna.update']);
     $routes->delete('delete/(:any)', 'PenggunaController::delete/$1', ['as' => 'pengguna.delete']);
 });

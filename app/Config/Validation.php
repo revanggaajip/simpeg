@@ -57,8 +57,15 @@ class Validation extends BaseConfig
 
     public $pengguna = [
         'nama' => 'required',
-        'email' => 'required|valid_email|is_unique[pengguna.email,id,{id}]',
-        'password' => 'required'
+        'nip' => 'required|is_unique[pengguna.nip,id,{id}]',
+        'nik' => 'required|is_unique[pengguna.nik,id,{id}]',
+        'jenis_kelamin' => 'required',
+        'tempat_lahir' => 'required',
+        'tanggal_lahir' => 'required',
+        'agama' => 'required',
+        'jabatan' => 'required',
+        'mulai_kerja' => 'required',
+        'password' => 'required',
     ];
 
     public $penilaian = [
