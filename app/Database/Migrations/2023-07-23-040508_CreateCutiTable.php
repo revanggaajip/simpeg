@@ -10,11 +10,11 @@ class CreateCutiTable extends Migration
     {
         $this->forge->addField([
         'id' => ['type'=> 'BIGINT','constraint'=> 20, 'unsigned'=> true, 'auto_increment'=> true],  
+        'pengguna_id' => ['type'=> 'BIGINT','constraint'=> 20, 'unsigned'=> true],  
         'mulai' => ['type'=> 'date'],
         'akhir' => ['type' => 'date'],
-        'alasan'=> ['type' => 'varchar'],
-        'pengguna_id' => ['type' => 'BIGINT', 'constraint' => 20, 'unsigned' => true],
-        'status' => ['type'=> 'varchar'],
+        'alasan'=> ['type' => 'varchar', 'constraint' => 255],
+        'status'=> ['type' => 'varchar', 'constraint' => 50],
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('cuti');

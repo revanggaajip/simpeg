@@ -33,6 +33,12 @@
                 <div data-i18n="Analytics">Pegawai</div>
             </a>
         </li>
+        <li class="menu-item <?= $title == 'Cuti Pegawai' ? 'active' : null ?>">
+            <a href="/cuti" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-calendar"></i>
+                <div data-i18n="Analytics">Cuti Pegawai</div>
+            </a>
+        </li>
         <?php } ?>
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Menu</span>
@@ -41,6 +47,12 @@
             <a href="<?= route_to('pengguna.detail', session('id')); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>
                 <div data-i18n="Analytics">Profil</div>
+            </a>
+        </li>
+        <li class="menu-item <?= $title == 'Pengajuan Cuti' ? 'active' : null ?>">
+            <a href="/cuti/<?= session('id'); ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-calendar-event"></i>
+                <div data-i18n="Analytics">Pengajuan Cuti</div>
             </a>
         </li>
     </ul>
