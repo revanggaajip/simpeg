@@ -39,8 +39,16 @@
                     <div class="col mb-3">
                         <label for="masuk" class="form-label">Tahun Masuk</label>
                         <select name="masuk" id="masuk" class="form-control">
+                            <?php for ($i= date('Y'); $i >= 1950; $i--) { ?>
+                                <option value="<?= $i ?>" <?= $i == date('Y') ? 'selected' : null ?>><?= $i ?></option>
+                            <?php }?>
+                        </select>
+                    </div>
+                    <div class="col mb-3">
+                        <label for="lulus" class="form-label">Tahun Lulus</label>
+                        <select name="lulus" id="lulus" class="form-control">
                             <?php for ($i= date('Y'); $i >= 1900; $i--) { ?>
-                                <option value="<?= $i ?>"><?= $i ?></option>
+                                <option value="<?= $i ?>" <?= $i == date('Y') ? 'selected' : null ?>><?= $i ?></option>
                             <?php }?>
                         </select>
                     </div>

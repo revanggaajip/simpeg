@@ -39,6 +39,12 @@
                 <div data-i18n="Analytics">Cuti Pegawai</div>
             </a>
         </li>
+        <li class="menu-item <?= $title == 'Penggajian Pegawai' ? 'active' : null ?>">
+            <a href="/cuti" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-dollar-circle"></i>
+                <div data-i18n="Analytics">Penggajian Pegawai</div>
+            </a>
+        </li>
         <?php } ?>
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Menu</span>
@@ -65,6 +71,13 @@
             <a href="/keluarga/<?= session('id'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user-circle"></i>
                 <div data-i18n="Analytics">Anggota Keluarga</div>
+            </a>
+        </li>
+
+        <li class="menu-item <?= $title == 'Riwayat Pendidikan' ? 'active' : null ?>">
+            <a href="/pendidikan/<?= session('id'); ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-book-reader"></i>
+                <div data-i18n="Analytics">Riwayat Pendidikan</div>
             </a>
         </li>
     </ul>

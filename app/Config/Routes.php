@@ -75,6 +75,21 @@ $routes->group('keluarga', function($routes) {
     $routes->delete('delete/(:any)', 'KeluargaController::delete/$1', ['as' => 'keluarga.delete']);
 });
 
+$routes->group('pendidikan', function($routes) {
+    $routes->get('(:any)', 'PendidikanController::index/$1', ['as' => 'pendidikan.index']);
+    $routes->post('create', 'PendidikanController::store', ['as' =>'pendidikan.store']);
+    $routes->put('edit/(:any)', 'PendidikanController::update/$1', ['as' => 'pendidikan.update']);
+    $routes->delete('delete/(:any)', 'PendidikanController::delete/$1', ['as' => 'pendidikan.delete']);
+});
+
+$routes->group('gaji', function($routes) {
+    $routes->get('/', 'GajiController::index', ['as' => 'gaji.index']);
+    $routes->get('detail/(:any)', 'GajiController::detail/$1', ['as' => 'gaji.detail']);
+    $routes->post('create/(:any)', 'GajiController::create/$1', ['as' => 'gaji.create']);
+    $routes->put('edit/(:any)', 'GajiController::edit/$1', ['as' => 'gaji.edit']);
+    $routes->delete('delete/(:any)', 'GajiController::delete/$1', ['as' => 'gaji.delete']);
+});
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

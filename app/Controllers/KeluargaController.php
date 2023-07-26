@@ -20,7 +20,7 @@ class KeluargaController extends BaseController
     public function index($pengguna_id)
     {
         $data['listKeluarga'] = $this->keluarga->where('pengguna_id', $pengguna_id)->orderBy('id')->findAll();
-        $data['title'] = 'Keluarga';
+        $data['title'] = 'Anggota Keluarga';
         return view('keluarga/index', $data);
     }
 
