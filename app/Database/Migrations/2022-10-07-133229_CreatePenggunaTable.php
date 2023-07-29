@@ -50,13 +50,6 @@ class CreatePenggunaTable extends Migration
                 'type'          => 'varchar',
                 'constraint'    => '20'
             ],
-            'jabatan'         => [
-                'type'          => 'varchar',
-                'constraint'    => '100'
-            ],
-            'gaji' => [
-                'type'          => 'double'
-            ],
             'npwp'         => [
                 'type'          => 'varchar',
                 'constraint'    => '100',
@@ -67,9 +60,9 @@ class CreatePenggunaTable extends Migration
                 'constraint'    => ['Aktif', 'Tidak Aktif'],
                 'default'       => 'Aktif'
             ],
-            'password'      => [
+            'password'          => [
                 'type'              => 'VARCHAR',
-                'constraint'        => 255
+                'constraint'        => 255,
             ],
             'role'          => [
                 'type'              => 'VARCHAR',

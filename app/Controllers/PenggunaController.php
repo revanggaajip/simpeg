@@ -28,12 +28,8 @@ class PenggunaController extends BaseController
         // panggil helper validasi input data
         $validation = $this->services::validation();
 
-        // Cek Konfirmasi Password
-        if ($this->request->getVar('password') != $this->request->getVar('konfirmasi_password')) {
-            return redirect()->to(route_to('pengguna.index'))->with('error', 'Konfirmasi Password Tidak Sesuai');             
-        }
         // Enkripsi password
-        $password = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
+        $password = password_hash($this->request->getVar('nip'), PASSWORD_DEFAULT);
 
         // Ambil data dari inputan
         $pengguna = [
@@ -45,9 +41,7 @@ class PenggunaController extends BaseController
             'tanggal_lahir'=> $this->request->getVar('tanggal_lahir'),
             'agama'=> $this->request->getVar('agama'),
             'alamat'=> $this->request->getVar('alamat'),
-            'jabatan'=> $this->request->getVar('jabatan'),
             'mulai_kerja'=> $this->request->getVar('mulai_kerja'),
-            'gaji'=> $this->request->getVar('gaji'),
             'npwp'=> $this->request->getVar('npwp'),
             'role'=> $this->request->getVar('role'),
             'password' => $password
@@ -91,9 +85,7 @@ class PenggunaController extends BaseController
             'tanggal_lahir'=> $this->request->getVar('tanggal_lahir'),
             'agama'=> $this->request->getVar('agama'),
             'alamat'=> $this->request->getVar('alamat'),
-            'jabatan'=> $this->request->getVar('jabatan'),
             'mulai_kerja'=> $this->request->getVar('mulai_kerja'),
-            'gaji'=> $this->request->getVar('gaji'),
             'npwp'=> $this->request->getVar('npwp'),
             'role'=> $this->request->getVar('role'),
             'password' => $this->request->getVar('password')

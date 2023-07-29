@@ -40,7 +40,7 @@
             </a>
         </li>
         <li class="menu-item <?= $title == 'Penggajian Pegawai' ? 'active' : null ?>">
-            <a href="/cuti" class="menu-link">
+            <a href="/gaji" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-dollar-circle"></i>
                 <div data-i18n="Analytics">Penggajian Pegawai</div>
             </a>
@@ -49,12 +49,15 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Menu</span>
         </li>
-        <li class="menu-item <?= $title == 'Profil' . session('nama') ? 'active' : null ?>">
-            <a href="<?= route_to('pengguna.detail', session('id')); ?>" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-user"></i>
-                <div data-i18n="Analytics">Profil</div>
-            </a>
-        </li>
+        <?php
+        if (session('role') == 'admin') { ?>
+            <li class="menu-item <?= $title == 'Profil' . session('nama') ? 'active' : null ?>">
+                <a href="<?= route_to('pengguna.detail', session('id')); ?>" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-user"></i>
+                    <div data-i18n="Analytics">Profil</div>
+                </a>
+            </li>
+        <?php } ?>
         <li class="menu-item <?= $title == 'Pengajuan Cuti' ? 'active' : null ?>">
             <a href="/cuti/<?= session('id'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-calendar-event"></i>
@@ -78,6 +81,13 @@
             <a href="/pendidikan/<?= session('id'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-book-reader"></i>
                 <div data-i18n="Analytics">Riwayat Pendidikan</div>
+            </a>
+        </li>
+
+        <li class="menu-item <?= $title == 'Riwayat Gaji' ? 'active' : null ?>">
+            <a href="/gaji/detail/<?= session('id'); ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-dollar-circle"></i>
+                <div data-i18n="Analytics">Riwayat Gaji</div>
             </a>
         </li>
     </ul>

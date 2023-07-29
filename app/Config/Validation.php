@@ -50,9 +50,7 @@ class Validation extends BaseConfig
         'tempat_lahir' => 'required',
         'tanggal_lahir' => 'required',
         'agama' => 'required',
-        'jabatan' => 'required',
         'mulai_kerja' => 'required',
-        'password' => 'required',
     ];
 
     public $cuti = [
@@ -78,5 +76,14 @@ class Validation extends BaseConfig
         'masuk' => 'required',
         'lulus' => 'required',
         'tingkatan' => 'required'
+    ];
+
+    public $gaji = [
+        'gapok' => 'required',
+        'potongan' => 'required',
+        'tunjangan' => 'required',
+        'total' => 'required',
+        'periode' => 'required',
+        'keterangan' => 'required'
     ];
 }

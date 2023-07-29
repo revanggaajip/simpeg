@@ -10,81 +10,117 @@
         <h4 class="my-auto"><?= $title; ?></h4>
     </div>
     <div class="card-body">
-        <table width="100%">
-            <tr>
-                <td width="20%">NIP</td>
-                <td width="1%">:</td>
-                <td class="py-2"><?= $pengguna['nip']; ?></td>
-            </tr>
-            <tr>
-                <td width="20%">NIK</td>
-                <td width="1%">:</td>
-                <td class="py-2"><?= $pengguna['nik']; ?></td>
-            </tr>
-            <tr>
-                <td width="20%">Nama</td>
-                <td width="1%">:</td>
-                <td class="py-2"><?= $pengguna['nama']; ?></td>
-            </tr>
-            <tr>
-                <td width="20%">Jenis Kelamin</td>
-                <td width="1%">:</td>
-                <td class="py-2"><?= $pengguna['jenis_kelamin']; ?></td>
-            </tr>
-            <tr>
-                <td width="20%">Tempat, Tanggal Lahir</td>
-                <td width="1%">:</td>
-                <td class="py-2"><?= $pengguna['tempat_lahir'] ?>,
-                    <?= date('d-M-Y', strtotime($pengguna['tanggal_lahir'])) ?></td>
-            </tr>
-            <tr>
-                <td width="20%">Umur</td>
-                <td width="1%">:</td>
-                <td class="py-2">
-                    <?= (date_diff(date_create($pengguna['tanggal_lahir']), date_create(date('Y-m-d'))))->format('%y') ?>
-                    Tahun</td>
-            </tr>
-            <tr>
-                <td width="20%">Agama</td>
-                <td width="1%">:</td>
-                <td class="py-2"><?= $pengguna['agama'] ?></td>
-            </tr>
-            <tr>
-                <td width="20%">Alamat</td>
-                <td width="1%">:</td>
-                <td class="py-2"><?= $pengguna['alamat'] ?></td>
-            </tr>
-            <tr>
-                <td width="20%">Jabatan</td>
-                <td width="1%">:</td>
-                <td class="py-2"><?= $pengguna['jabatan'] ?></td>
-            </tr>
-            <tr>
-                <td width="20%">Mulai Kerja</td>
-                <td width="1%">:</td>
-                <td class="py-2"><?= date('d-m-Y', strtotime($pengguna['mulai_kerja'])) ?></td>
-            </tr>
-            <tr>
-                <td width="20%">Masa Kerja</td>
-                <td width="1%">:</td>
-                <td class="py-2">
-                    <?= (date_diff(date_create($pengguna['tanggal_lahir']), date_create(date('Y-m-d'))))->format('%y') ?>
-                    Tahun</td>
-            </tr>
-            <tr>
-                <td width="20%">Gaji</td>
-                <td width="1%">:</td>
-                <td class="py-2">
-                    Rp. <?= $pengguna['gaji']; ?>
-                </td>
-            </tr>
-            <tr>
-                <td width="20%">NPWP</td>
-                <td width="1%">:</td>
-                <td class="py-2">
-                    <?= $pengguna['npwp']; ?>
-                </td>
-            </tr>
+        <table width="100%" class="table">
+            <thead>
+                <tr class="bg-primary">
+                    <th colspan="2"><span class="text-white">Nama kolom</span></th>
+                    <th><span class="text-white">Isi Kolom</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td width="20%">NIP</td>
+                    <td width="1%">:</td>
+                    <td class="py-2"><?= $pengguna['nip']; ?></td>
+                </tr>
+                <tr>
+                    <td width="20%">NIK</td>
+                    <td width="1%">:</td>
+                    <td class="py-2"><?= $pengguna['nik']; ?></td>
+                </tr>
+                <tr>
+                    <td width="20%">Nama</td>
+                    <td width="1%">:</td>
+                    <td class="py-2"><?= $pengguna['nama']; ?></td>
+                </tr>
+                <tr>
+                    <td width="20%">Jenis Kelamin</td>
+                    <td width="1%">:</td>
+                    <td class="py-2"><?= $pengguna['jenis_kelamin']; ?></td>
+                </tr>
+                <tr>
+                    <td width="20%">Tempat, Tanggal Lahir</td>
+                    <td width="1%">:</td>
+                    <td class="py-2"><?= $pengguna['tempat_lahir'] ?>,
+                        <?= date('d-M-Y', strtotime($pengguna['tanggal_lahir'])) ?></td>
+                </tr>
+                <tr>
+                    <td width="20%">Umur</td>
+                    <td width="1%">:</td>
+                    <td class="py-2">
+                        <?= (date_diff(date_create($pengguna['tanggal_lahir']), date_create(date('Y-m-d'))))->format('%y') ?>
+                        Tahun</td>
+                </tr>
+                <tr>
+                    <td width="20%">Agama</td>
+                    <td width="1%">:</td>
+                    <td class="py-2"><?= $pengguna['agama'] ?></td>
+                </tr>
+                <tr>
+                    <td width="20%">Alamat</td>
+                    <td width="1%">:</td>
+                    <td class="py-2"><?= $pengguna['alamat'] ?></td>
+                </tr>
+                <tr>
+                    <td width="20%">Mulai Kerja</td>
+                    <td width="1%">:</td>
+                    <td class="py-2"><?= date('d-m-Y', strtotime($pengguna['mulai_kerja'])) ?></td>
+                </tr>
+                <tr>
+                    <td width="20%">Masa Kerja</td>
+                    <td width="1%">:</td>
+                    <td class="py-2">
+                        <?= (date_diff(date_create($pengguna['tanggal_lahir']), date_create(date('Y-m-d'))))->format('%y') ?>
+                        Tahun</td>
+                </tr>
+                <tr>
+                    <td width="20%">NPWP</td>
+                    <td width="1%">:</td>
+                    <td class="py-2">
+                        <?= $pengguna['npwp']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%">Anggota Keluarga</td>
+                    <td width="1%">:</td>
+                    <td class="py-2">
+                        <a href="/keluarga/<?= $pengguna['id']?>" class="btn btn-sm btn-primary"><i class="bx bx-info-circle"></i> Detail</a>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <h5 class="my-4">Riwayat Kerja</h5>
+        <table width="100%" class="table">
+            <thead>
+                <tr class="bg-primary">
+                    <th colspan="2"><span class="text-white">Nama kolom</span></th>
+                    <th><span class="text-white">Isi Kolom</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td width="20%">Riwayat Jabatan</td>
+                    <td width="1%">:</td>
+                    <td class="py-2">
+                        <a href="/jabatan/<?= $pengguna['id']?>" class="btn btn-sm btn-primary"><i class="bx bx-info-circle"></i> Detail</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%">Riwayat Pedidikan</td>
+                    <td width="1%">:</td>
+                    <td class="py-2">
+                        <a href="/pendidikan/<?= $pengguna['id']?>" class="btn btn-sm btn-primary"><i class="bx bx-info-circle"></i> Detail</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%">Riwayat Penggajian</td>
+                    <td width="1%">:</td>
+                    <td class="py-2">
+                        <a href="/gaji/detail/<?= $pengguna['id']?>" class="btn btn-sm btn-primary"><i class="bx bx-info-circle"></i> Detail</a>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
     <?php if (session('role') == 'admin') { ?>

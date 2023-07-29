@@ -15,6 +15,14 @@ class CreateCutiTable extends Migration
         'akhir' => ['type' => 'date'],
         'alasan'=> ['type' => 'varchar', 'constraint' => 255],
         'status'=> ['type' => 'varchar', 'constraint' => 50],
+        'created_at'    => [
+            'type'          => 'DATETIME',
+            'null'          => TRUE
+        ],
+        'updated_at'    => [
+            'type'          => 'DATETIME',
+            'null'          => TRUE
+        ]
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('cuti');

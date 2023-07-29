@@ -25,7 +25,6 @@
                         <th>Nip</th>
                         <th>Nama</th>
                         <th>Jenis Kelamin</th>
-                        <th>Jabatan</th>
                         <th>Role</th>
                         <th>Status</th>
                         <th>Aksi</th>
@@ -38,7 +37,6 @@
                         <td><?= $pengguna['nip']; ?></td>
                         <td><?= $pengguna['nama']; ?></td>
                         <td><?= $pengguna['jenis_kelamin']; ?></td>
-                        <td><?= $pengguna['jabatan']; ?></td>
                         <td><?= $pengguna['role']; ?></td>
                         <td>
                             <?php if ($pengguna['status'] == 'Aktif') { ?>

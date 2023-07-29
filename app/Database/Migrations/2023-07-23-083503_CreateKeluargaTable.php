@@ -14,6 +14,14 @@ class CreateKeluargaTable extends Migration
             'nama' => ['type' => 'varchar', 'constraint' => 150],
             'tanggal_lahir' => ['type'=> 'date'],
             'hubungan' => ['type' => 'varchar', 'constraint' => 100],
+            'created_at'    => [
+                'type'          => 'DATETIME',
+                'null'          => TRUE
+            ],
+            'updated_at'    => [
+                'type'          => 'DATETIME',
+                'null'          => TRUE
+            ]
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('keluarga');

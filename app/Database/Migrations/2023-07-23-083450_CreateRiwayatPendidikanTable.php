@@ -14,7 +14,15 @@ class CreateRiwayatPendidikanTable extends Migration
             'nama' => ['type' => 'varchar', 'constraint' => 100],
             'masuk' => ['type'=> 'varchar', 'constraint' => 20],
             'lulus' => ['type' => 'varchar', 'constraint' => 20],
-            'tingkatan' => ['type' => 'varchar', 'constraint' => 25]
+            'tingkatan' => ['type' => 'varchar', 'constraint' => 25],
+            'created_at'    => [
+                'type'          => 'DATETIME',
+                'null'          => TRUE
+            ],
+            'updated_at'    => [
+                'type'          => 'DATETIME',
+                'null'          => TRUE
+            ]
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('riwayat_pendidikan');

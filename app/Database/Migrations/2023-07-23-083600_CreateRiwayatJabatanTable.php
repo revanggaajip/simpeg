@@ -14,6 +14,14 @@ class CreateRiwayatJabatanTable extends Migration
             'nama' => ['type' => 'varchar', 'constraint' => 100],
             'awal' => ['type'=> 'varchar', 'constraint' => 10],
             'akhir' => ['type' => 'varchar', 'constraint' => 10],
+            'created_at'    => [
+                'type'          => 'DATETIME',
+                'null'          => TRUE
+            ],
+            'updated_at'    => [
+                'type'          => 'DATETIME',
+                'null'          => TRUE
+            ]
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('riwayat_jabatan');

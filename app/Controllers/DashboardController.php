@@ -3,23 +3,25 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\Kriteria;
-use App\Models\Pendaftar;
+use App\Models\Cuti;
+use App\Models\Gaji;
 use App\Models\Pengguna;
-use App\Models\SeleksiHeader;
 
 class DashboardController extends BaseController
 {
     public function index()
     {
-        // $kriteria = new Kriteria();
-        // $pendaftar = new Pendaftar();
-        // $seleksiHeader = new SeleksiHeader();
+        if (session('role') != 'admin') {
+            return redirect()->to('/pengguna/detail/' . session('id'));
+        }
+
         $pengguna = new Pengguna();
+        $cuti = new Cuti();
+        $gaji = new Gaji();
+
         $data['title'] = 'Dashboard';
-        // $data['kriteria'] = $kriteria->countAllResults();
-        // $data['pendaftar'] = $pendaftar->countAllResults();
-        // $data['laporan'] = $seleksiHeader->countAllResults();
+        $data['cuti'] = $cuti->where('YEAR(created_at)', date('Y'))->where('MONTH(created_at)', date('m'))->countAllResults();
+        $data['gaji'] = $gaji->selectSum('total')->first();
         $data['pengguna'] = $pengguna->countAllResults();
 
         return view('dashboard/index', $data);

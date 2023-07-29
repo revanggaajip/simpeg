@@ -80,20 +80,9 @@
                 </div>
                 <div class="row">
                     <div class="col mb-3">
-                        <label for="jabatan" class="form-label">Jabatan</label>
-                        <input type="text" name="jabatan" id="jabatan" class="form-control"
-                            placeholder="Masukkan Jabatan">
-                    </div>
-                    <div class="col mb-3">
                         <label for="mulai_kerja" class="form-label">Mulai Kerja</label>
                         <input type="date" name="mulai_kerja" id="mulai_kerja" class="form-control"
                             placeholder="Masukkan Mulai Kerja">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col mb-3">
-                        <label for="gaji" class="form-label">Gaji</label>
-                        <input type="text" name="gaji" id="gaji" class="form-control" placeholder="Masukkan Gaji">
                     </div>
                     <div class="col mb-3">
                         <label for="role" class="form-label">Role</label>
@@ -107,18 +96,6 @@
                     <div class="mb-3 col">
                         <label for="alamat" class="form-label">Alamat</label>
                         <Textarea class="form-control" placeholder="Masukkan Alamat" rows="2" name="alamat"></Textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col mb-3">
-                        <label for="mulai_kerja" class="form-label">Password</label>
-                        <input type="password" name="password" id="password" class="form-control"
-                            placeholder="Masukkan Password">
-                    </div>
-                    <div class="col mb-3">
-                        <label for="konfirmasi_password" class="form-label">Konfirmasi Password </label>
-                        <input type="password" name="konfirmasi_password" id="konfirmasi_password_" class="form-control"
-                            placeholder="Masukkan Konfirmasi Password ">
                     </div>
                 </div>
             </div>

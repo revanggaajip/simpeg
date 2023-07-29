@@ -87,21 +87,9 @@
                 </div>
                 <div class="row">
                     <div class="col mb-3">
-                        <label for="jabatan" class="form-label">Jabatan</label>
-                        <input type="text" name="jabatan" id="jabatan" class="form-control"
-                            placeholder="Masukkan Jabatan" value="<?= $pengguna['jabatan']; ?>">
-                    </div>
-                    <div class="col mb-3">
                         <label for="mulai_kerja" class="form-label">Mulai Kerja</label>
                         <input type="date" name="mulai_kerja" id="mulai_kerja" class="form-control"
                             placeholder="Masukkan Mulai Kerja" value="<?= $pengguna['mulai_kerja']; ?>">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col mb-3">
-                        <label for="gaji" class="form-label">Gaji</label>
-                        <input type="text" name="gaji" id="gaji" class="form-control" placeholder="Masukkan Gaji"
-                            value="<?= $pengguna['gaji']; ?>">
                     </div>
                     <div class="col mb-3">
                         <label for="role" class="form-label">Role</label>

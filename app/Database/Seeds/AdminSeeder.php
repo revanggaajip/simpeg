@@ -19,10 +19,8 @@ class AdminSeeder extends Seeder
             'tanggal_lahir' => '2000/01/01',
             'alamat' => 'Planet Namex',
             'agama' => 'Islam',
-            'jabatan' => 'Big Boss',
             'npwp' => '123',
             'mulai_kerja' => '2000/01/01',
-            'gaji' => '500000',
             'password' => password_hash('password', PASSWORD_DEFAULT),
             'role' => 'admin'
         ]);

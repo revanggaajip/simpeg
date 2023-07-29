@@ -6,7 +6,8 @@
 
 <?= $this->section('content'); ?>
 <div class="card">
-        <h4>Data <?= $title; ?></h4>
+    <div class="card-header">
+    <h4>Data <?= $title; ?></h4>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -17,7 +18,6 @@
                         <th>Nip</th>
                         <th>Nama</th>
                         <th>Jenis Kelamin</th>
-                        <th>Jabatan</th>
                         <th>Role</th>
                         <th>Status</th>
                         <th>Aksi</th>
@@ -30,7 +30,6 @@
                         <td><?= $pengguna['nip']; ?></td>
                         <td><?= $pengguna['nama']; ?></td>
                         <td><?= $pengguna['jenis_kelamin']; ?></td>
-                        <td><?= $pengguna['jabatan']; ?></td>
                         <td><?= $pengguna['role']; ?></td>
                         <td>
                             <?php if ($pengguna['status'] == 'Aktif') { ?>
@@ -40,7 +39,7 @@
                             <?php } ?>
                         </td>
                         <td>
-                            <a href="/gaji/detail/<?= $pengguna['id'] ?>">
+                            <a href="/gaji/detail/<?= $pengguna['id'] ?>" class="btn btn-info btn-sm">
                                 <i class="bx bx-info-circle"></i> Detail
                             </a>
                         </td>

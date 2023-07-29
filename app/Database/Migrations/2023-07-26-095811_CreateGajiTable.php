@@ -16,7 +16,15 @@ class CreateGajiTable extends Migration
             'tunjangan' => ['type' => 'double'],
             'total' => ['type' => 'double'],
             'periode' => ['type' => 'text'],
-            'keterangan' => ['type' => 'text']
+            'keterangan' => ['type' => 'text'],
+            'created_at'    => [
+                'type'          => 'DATETIME',
+                'null'          => TRUE
+            ],
+            'updated_at'    => [
+                'type'          => 'DATETIME',
+                'null'          => TRUE
+            ]
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('gaji');

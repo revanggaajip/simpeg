@@ -36,14 +36,13 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'DashboardController::index', ['as' => 'dashboard.index', 'filter' => 'auth']);
-
 $routes->get('login', 'AuthController::login', ['as' => 'login.index']);
 $routes->post('login', 'AuthController::loginAction', ['as' => 'login.action']);
 $routes->get('logout', 'AuthController::logout', ['as' => 'logout.index']);
 $routes->get('edit-password', 'AuthController::editPassword', ['as' => 'password.edit']);
 $routes->post('edit-password', 'AuthController::updatePassword', ['as' => 'password.update']);
 
-$routes->group('pengguna', function($routes) {
+$routes->group('pengguna', ['filter' => 'auth'],function($routes) {
     $routes->get('/', 'PenggunaController::index', ['as' => 'pengguna.index']);
     $routes->post('create', 'PenggunaController::store', ['as' =>'pengguna.store']);
     $routes->get('detail/(:any)', 'PenggunaController::detail/$1', ['as' => 'pengguna.detail']);
@@ -51,7 +50,7 @@ $routes->group('pengguna', function($routes) {
     $routes->delete('delete/(:any)', 'PenggunaController::delete/$1', ['as' => 'pengguna.delete']);
 });
 
-$routes->group('cuti', function($routes) {
+$routes->group('cuti', ['filter' => 'auth'], function($routes) {
     $routes->get('/', 'CutiController::index', ['as' => 'cuti.index']);
     $routes->get('(:any)', 'CutiController::detail/$1', ['as' => 'cuti.detail']);
     $routes->post('create', 'CutiController::store', ['as' =>'cuti.store']);
@@ -61,32 +60,32 @@ $routes->group('cuti', function($routes) {
     $routes->delete('delete/(:any)', 'CutiController::delete/$1', ['as' => 'cuti.delete']);
 });
 
-$routes->group('jabatan', function($routes) {
+$routes->group('jabatan', ['filter' => 'auth'], function($routes) {
     $routes->get('(:any)', 'RiwayatJabatanController::index/$1', ['as' => 'jabatan.index']);
     $routes->post('create', 'RiwayatJabatanController::store', ['as' =>'jabatan.store']);
     $routes->put('edit/(:any)', 'RiwayatJabatanController::update/$1', ['as' => 'jabatan.update']);
     $routes->delete('delete/(:any)', 'RiwayatJabatanController::delete/$1', ['as' => 'jabatan.delete']);
 });
 
-$routes->group('keluarga', function($routes) {
+$routes->group('keluarga',['filter' => 'auth'], function($routes) {
     $routes->get('(:any)', 'KeluargaController::index/$1', ['as' => 'keluarga.index']);
     $routes->post('create', 'KeluargaController::store', ['as' =>'keluarga.store']);
     $routes->put('edit/(:any)', 'KeluargaController::update/$1', ['as' => 'keluarga.update']);
     $routes->delete('delete/(:any)', 'KeluargaController::delete/$1', ['as' => 'keluarga.delete']);
 });
 
-$routes->group('pendidikan', function($routes) {
+$routes->group('pendidikan',['filter' => 'auth'], function($routes) {
     $routes->get('(:any)', 'PendidikanController::index/$1', ['as' => 'pendidikan.index']);
     $routes->post('create', 'PendidikanController::store', ['as' =>'pendidikan.store']);
     $routes->put('edit/(:any)', 'PendidikanController::update/$1', ['as' => 'pendidikan.update']);
     $routes->delete('delete/(:any)', 'PendidikanController::delete/$1', ['as' => 'pendidikan.delete']);
 });
 
-$routes->group('gaji', function($routes) {
+$routes->group('gaji', ['filter' => 'auth'], function($routes) {
     $routes->get('/', 'GajiController::index', ['as' => 'gaji.index']);
     $routes->get('detail/(:any)', 'GajiController::detail/$1', ['as' => 'gaji.detail']);
-    $routes->post('create/(:any)', 'GajiController::create/$1', ['as' => 'gaji.create']);
-    $routes->put('edit/(:any)', 'GajiController::edit/$1', ['as' => 'gaji.edit']);
+    $routes->post('create/(:any)', 'GajiController::store/$1', ['as' => 'gaji.create']);
+    $routes->put('edit/(:any)', 'GajiController::update/$1', ['as' => 'gaji.edit']);
     $routes->delete('delete/(:any)', 'GajiController::delete/$1', ['as' => 'gaji.delete']);
 });
 
