@@ -89,6 +89,13 @@ $routes->group('gaji', ['filter' => 'auth'], function($routes) {
     $routes->delete('delete/(:any)', 'GajiController::delete/$1', ['as' => 'gaji.delete']);
 });
 
+$routes->group('berkas', ['filter' => 'auth'], function($routes) {
+    $routes->get('detail/(:any)', 'BerkasController::detail/$1', ['as' => 'berkas.detail']);
+    $routes->post('create/(:any)', 'BerkasController::store/$1', ['as' => 'berkas.create']);
+    $routes->put('edit/(:any)', 'BerkasController::update/$1', ['as' => 'berkas.edit']);
+    $routes->delete('delete/(:any)', 'BerkasController::delete/$1', ['as' => 'berkas.delete']);
+});
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -90,5 +90,12 @@
                 <div data-i18n="Analytics">Riwayat Gaji</div>
             </a>
         </li>
+
+        <li class="menu-item <?= $title == 'Berkas Penunjang' ? 'active' : null ?>">
+            <a href="/berkas/detail/<?= session('id'); ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-upload"></i>
+                <div data-i18n="Analytics">Berkas Penunjang</div>
+            </a>
+        </li>
     </ul>
 </aside>

@@ -86,4 +86,8 @@ class Validation extends BaseConfig
         'periode' => 'required',
         'keterangan' => 'required'
     ];
+
+    public $berkas = [
+        'keterangan' => 'required'
+    ];
 }
